@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtSpire - Community Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Sora:wght@600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Custom styles for Pacific Blue buttons */
+        .btn-login,
+        .btn-signup {
+            background-color: #3EAEDF;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-login:hover,
+        .btn-signup:hover {
+            background-color: #2c9bc7;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 10px;
+            margin-left: 15px;
+        }
+
+        @media (max-width: 991px) {
+
+            .mobile-auth-buttons .btn-login,
+            .mobile-auth-buttons .btn-signup {
+                background-color: #3EAEDF;
+                color: white;
+            }
+        }
+
+        /* Community-specific styles */
+        .community-header {
+            background-color: #f8f9fa;
+            padding: 60px 0 40px;
+            margin-top: 70px;
+            text-align: center;
+        }
+
+        .community-header h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-family: 'Sora', sans-serif;
+            font-weight: 700;
+        }
+
+        .community-header p {
+            color: #666;
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .forum-categories {
+            padding: 60px 0;
+        }
+
+        .category-card {
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #eaeaea;
+            transition: all 0.3s ease;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .category-header {
+            padding: 20px;
+            background-color: #3EAEDF;
+            color: white;
+        }
+
+        .category-header h3 {
+            margin: 0;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .category-body {
+            padding: 20px;
+            background-color: white;
+        }
+
+        .category-body p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+
+        .category-stats {
+            display: flex;
+            gap: 20px;
+            color: #888;
+            font-size: 14px;
+        }
+
+        .recent-discussions {
+            background-color: #f8f9fa;
+            padding: 60px 0;
+        }
+
+        .discussion-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            border: 1px solid #eaeaea;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .discussion-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .discussion-header {
+            padding: 15px 20px;
+            border-bottom: 1px solid #eaeaea;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .discussion-title {
+            font-weight: 600;
+            font-size: 18px;
+            margin: 0;
+        }
+
+        .discussion-category {
+            font-size: 14px;
+            padding: 3px 10px;
+            border-radius: 30px;
+            background-color: #e9f7fd;
+            color: #3EAEDF;
+        }
+
+        .discussion-body {
+            padding: 15px 20px;
+        }
+
+        .discussion-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #888;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .discussion-link {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .discussion-link:hover {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .faq-section,
+        .events-section {
+            padding: 60px 0;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .faq-answer {
+            color: #666;
+        }
+
+        .event-card {
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #eaeaea;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .event-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .event-date {
+            width: 80px;
+            text-align: center;
+            padding: 15px 0;
+            background-color: #3EAEDF;
+            color: white;
+        }
+
+        .event-date .month {
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            display: block;
+        }
+
+        .event-date .day {
+            font-size: 26px;
+            font-weight: 700;
+            display: block;
+        }
+
+        .event-details {
+            padding: 20px;
+        }
+
+        .event-details h4 {
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .event-details p {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .event-time-location {
+            font-size: 14px;
+            color: #888;
+        }
+
+        .contact-section {
+            background-color: #f8f9fa;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .cta-community {
+            padding: 80px 0;
+            background-color: #3EAEDF;
+            color: white;
+            text-align: center;
+        }
+
+        .cta-community h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .cta-community p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-cta-community {
+            background-color: white;
+            color: #3EAEDF;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-cta-community:hover {
+            background-color: #f0f0f0;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top" role="navigation" aria-label="Primary navigation">
+        <div class="container">
+            <a class="navbar-brand" href="index.html" aria-label="ArtSpire Home">Art<span>Spire</span></a>
+            <!-- Mobile Only: Hamburger Button -->
+            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#mobileNav" aria-controls="mobileNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <!-- Desktop Navigation -->
+            <div class="collapse navbar-collapse d-none d-lg-flex" id="navbarNav">
+                <ul class="navbar-nav ms-auto me-3">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="artists.html">Artists</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="uploadartwork.html">Upload</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="community.html" aria-current="page">Community</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <div class="auth-buttons">
+                    <a href="login.html" class="btn btn-login">Log In</a>
+                    <a href="signup.html" class="btn btn-signup">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Offcanvas Navigation -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileNav" aria-labelledby="mobileNavLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="mobileNavLabel">Art<span>Spire</span></h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav mobile-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="gallery.html">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="artists.html">Artists</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="uploadartwork.html">Upload</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="community.html" aria-current="page">Community</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+            </ul>
+            <div class="mobile-auth-buttons mt-4">
+                <a href="login.html" class="btn btn-login w-100 mb-2">Log In</a>
+                <a href="signup.html" class="btn btn-signup w-100">Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Community Header -->
+    <section class="community-header" id="main-content">
+        <div class="container">
+            <h1>Community Hub</h1>
+            <p>Connect, collaborate, and grow with fellow artists and art enthusiasts</p>
+        </div>
+    </section>
+
+    <!-- Forum Categories -->
+    <section class="forum-categories">
+        <div class="container">
+            <div class="section-title">
+                <h2>Discussion Forums</h2>
+                <p>Engage in meaningful conversations with our creative community</p>
+            </div>
+            <div class="row">
+                <!-- Category 1 -->
+                <div class="col-lg-6 col-md-6">
+                    <div class="category-card">
+                        <div class="category-header">
+                            <h3><i class="fas fa-paint-brush me-2"></i> Art Techniques</h3>
+                        </div>
+                        <div class="category-body">
+                            <p>Discuss techniques, tools, and resources for various art forms.</p>
+                            <div class="category-stats">
+                                <span><i class="fas fa-comments me-1"></i> 246 Topics</span>
+                                <span><i class="fas fa-users me-1"></i> 1,854 Members</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Category 2 -->
+                <div class="col-lg-6 col-md-6">
+                    <div class="category-card">
+                        <div class="category-header">
+                            <h3><i class="fas fa-handshake me-2"></i> Collaboration Opportunities</h3>
+                        </div>
+                        <div class="category-body">
+                            <p>Find partners for art projects, exhibitions, and creative ventures.</p>
+                            <div class="category-stats">
+                                <span><i class="fas fa-comments me-1"></i> 189 Topics</span>
+                                <span><i class="fas fa-users me-1"></i> 1,234 Members</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Category 3 -->
+                <div class="col-lg-6 col-md-6">
+                    <div class="category-card">
+                        <div class="category-header">
+                            <h3><i class="fas fa-chart-line me-2"></i> Art Business</h3>
+                        </div>
+                        <div class="category-body">
+                            <p>Exchange ideas on selling art, pricing, marketing, and building your brand.</p>
+                            <div class="category-stats">
+                                <span><i class="fas fa-comments me-1"></i> 314 Topics</span>
+                                <span><i class="fas fa-users me-1"></i> 2,102 Members</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Category 4 -->
+                <div class="col-lg-6 col-md-6">
+                    <div class="category-card">
+                        <div class="category-header">
+                            <h3><i class="fas fa-comments me-2"></i> Critique & Feedback</h3>
+                        </div>
+                        <div class="category-body">
+                            <p>Get constructive feedback on your work from fellow artists.</p>
+                            <div class="category-stats">
+                                <span><i class="fas fa-comments me-1"></i> 427 Topics</span>
+                                <span><i class="fas fa-users me-1"></i> 2,876 Members</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Discussions -->
+    <section class="recent-discussions">
+        <div class="container">
+            <div class="section-title">
+                <h2>Recent Discussions</h2>
+                <p>Join these active conversations in our community</p>
+            </div>
+            <div class="row">
+                <!-- Discussion 1 -->
+                <div class="col-lg-6 col-md-6">
+                    <a href="#" class="discussion-link">
+                        <div class="discussion-card">
+                            <div class="discussion-header">
+                                <h3 class="discussion-title">Best digital art software for beginners in 2025?</h3>
+                                <span class="discussion-category">Art Techniques</span>
+                            </div>
+                            <div class="discussion-body">
+                                <p>I'm looking to get into digital art but don't know which software to start with. Any
+                                    recommendations for someone with no prior digital experience but some traditional
+                                    art background?</p>
+                                <div class="discussion-meta">
+                                    <span><i class="fas fa-user me-1"></i> Started by MichaelArt</span>
+                                    <span><i class="fas fa-clock me-1"></i> 2 hours ago</span>
+                                    <span><i class="fas fa-comment me-1"></i> 17 replies</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!-- Discussion 2 -->
+                <div class="col-lg-6 col-md-6">
+                    <a href="#" class="discussion-link">
+                        <div class="discussion-card">
+                            <div class="discussion-header">
+                                <h3 class="discussion-title">Looking for collaborators for eco-art installation</h3>
+                                <span class="discussion-category">Collaboration Opportunities</span>
+                            </div>
+                            <div class="discussion-body">
+                                <p>Planning an installation using recycled materials for World Environment Day. Looking
+                                    for artists interested in sustainability to collaborate on a group exhibition.</p>
+                                <div class="discussion-meta">
+                                    <span><i class="fas fa-user me-1"></i> Started by EcoArtist</span>
+                                    <span><i class="fas fa-clock me-1"></i> 1 day ago</span>
+                                    <span><i class="fas fa-comment me-1"></i> 8 replies</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!-- Discussion 3 -->
+                <div class="col-lg-6 col-md-6">
+                    <a href="#" class="discussion-link">
+                        <div class="discussion-card">
+                            <div class="discussion-header">
+                                <h3 class="discussion-title">How to price commissioned portrait paintings?</h3>
+                                <span class="discussion-category">Art Business</span>
+                            </div>
+                            <div class="discussion-body">
+                                <p>I'm getting more requests for portrait commissions but struggle with pricing. How do
+                                    you calculate rates for different sizes and complexity levels?</p>
+                                <div class="discussion-meta">
+                                    <span><i class="fas fa-user me-1"></i> Started by PortraitPro</span>
+                                    <span><i class="fas fa-clock me-1"></i> 3 days ago</span>
+                                    <span><i class="fas fa-comment me-1"></i> 24 replies</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!-- Discussion 4 -->
+                <div class="col-lg-6 col-md-6">
+                    <a href="#" class="discussion-link">
+                        <div class="discussion-card">
+                            <div class="discussion-header">
+                                <h3 class="discussion-title">Feedback wanted: New mixed media series</h3>
+                                <span class="discussion-category">Critique & Feedback</span>
+                            </div>
+                            <div class="discussion-body">
+                                <p>Just completed a new series combining photography and painting. Would love some
+                                    constructive feedback on composition and message coherence.</p>
+                                <div class="discussion-meta">
+                                    <span><i class="fas fa-user me-1"></i> Started by MixedMediaMaster</span>
+                                    <span><i class="fas fa-clock me-1"></i> 4 days ago</span>
+                                    <span><i class="fas fa-comment me-1"></i> 12 replies</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="#" class="btn btn-primary">Start New Discussion</a>
+                <p class="mt-2"><small>To send a new topic you must <a href="login.html">log in</a> or <a
+                            href="signup.html">sign up</a> if new</small></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & FAQ Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Have questions or feedback? Reach out to our team</p>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-lg-8 mx-auto">
+                    <div class="section-title mb-4">
+                        <h3>Frequently Asked Questions</h3>
+                    </div>
+
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item">
+                        <h4 class="faq-question">How do I start a new discussion?</h4>
+                        <p class="faq-answer">To start a new discussion, log in to your account, navigate to the
+                            relevant forum category, and click on the "Start New Discussion" button. Fill in the title,
+                            description, and select any relevant tags before submitting.</p>
+                    </div>
+
+                    <!-- FAQ Item 2 -->
+                    <div class="faq-item">
+                        <h4 class="faq-question">Are there community guidelines I should follow?</h4>
+                        <p class="faq-answer">Yes, we have community guidelines to ensure a respectful and supportive
+                            environment. These include being constructive with feedback, avoiding personal attacks,
+                            respecting intellectual property, and keeping discussions relevant to the topics.</p>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="faq-item">
+                        <h4 class="faq-question">How can I get featured in the community spotlight?</h4>
+                        <p class="faq-answer">Community spotlights are selected based on active participation, helpful
+                            contributions, and quality of work shared. Consistently engaging in discussions, providing
+                            valuable feedback, and showcasing innovative work increases your chances of being featured.
+                        </p>
+                    </div>
+
+                    <!-- FAQ Item 4 -->
+                    <div class="faq-item">
+                        <h4 class="faq-question">How long does it take to get a response from the admin team?</h4>
+                        <p class="faq-answer">Our admin team typically responds to inquiries within 24-48 hours during
+                            business days. For urgent matters, please indicate this in the subject line of your message
+                            for faster attention.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="events-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Upcoming Community Events</h2>
+                <p>Join us for these exciting virtual and in-person gatherings</p>
+            </div>
+
+            <div class="row mt-4">
+                <!-- Event 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="event-card">
+                        <div class="d-flex">
+                            <div class="event-date">
+                                <span class="month">May</span>
+                                <span class="day">15</span>
+                            </div>
+                            <div class="event-details">
+                                <h4>Virtual Art Critique Session</h4>
+                                <p>Join our monthly critique session with professional artist and educator Elena
+                                    Rodriguez. Get valuable feedback on your latest pieces.</p>
+                                <div class="event-time-location">
+                                    <p><i class="far fa-clock me-1"></i> 7:00 PM - 9:00 PM EST</p>
+                                    <p><i class="fas fa-map-marker-alt me-1"></i> Online (Zoom)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="event-card">
+                        <div class="d-flex">
+                            <div class="event-date">
+                                <span class="month">May</span>
+                                <span class="day">22</span>
+                            </div>
+                            <div class="event-details">
+                                <h4>Art Business Workshop</h4>
+                                <p>Learn pricing strategies, marketing techniques, and business basics for artists.
+                                    Hosted by gallery owner and art consultant Marcus Chen.</p>
+                                <div class="event-time-location">
+                                    <p><i class="far fa-clock me-1"></i> 1:00 PM - 3:30 PM EST</p>
+                                    <p><i class="fas fa-map-marker-alt me-1"></i> Online (Zoom)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="event-card">
+                        <div class="d-flex">
+                            <div class="event-date">
+                                <span class="month">Jun</span>
+                                <span class="day">05</span>
+                            </div>
+                            <div class="event-details">
+                                <h4>Creative Community Meetup</h4>
+                                <p>Connect with local artists and ArtSpire members in this casual networking event.
+                                    Bring business cards and a piece to share!</p>
+                                <div class="event-time-location">
+                                    <p><i class="far fa-clock me-1"></i> 6:30 PM - 9:30 PM EST</p>
+                                    <p><i class="fas fa-map-marker-alt me-1"></i> Art District Cafe, NYC</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-community">
+        <div class="container">
+            <h2>Join the Conversation Today</h2>
+            <p>Connect with thousands of artists, get inspired, and grow your creative practice with supportive
+                feedback.</p>
+            <a href="signup.html" class="btn btn-cta-community">Sign Up For Free</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <!-- About -->
+                <div class="col-lg-4 col-md-6 footer-about">
+                    <div class="footer-logo">Art<span>Spire</span></div>
+                    <p>A creative hub designed for artists and art enthusiasts to share, showcase, and discover artwork
+                        from around the world.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-6">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="artists.html">Artists</a></li>
+                        <li><a href="community.html">Community</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="footer-heading">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="footer-heading">Contact Us</h4>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>123 Art Street, Creative City, AC 12345</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>(123) 456-7890</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>hello@artspire.com</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="copyright">
+                <p>© 2025 ArtSpire. All Rights Reserved. Designed with <i class="fas fa-heart"
+                        style="color: var(--watermelon-red);"></i> for artists.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>

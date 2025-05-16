@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - ArtSpire</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --midnight-charcoal: #2E2E2E;
+            --porcelain-white: #FFFFFF;
+            --watermelon-red: #FF5C6A;
+            --honey-mustard: #FEBD3B;
+            --sky-lavender: #C2BCDE;
+            --pacific-blue: #3EAEDF;
+            --jade-green: #21CA86;
+            --coral-red: #E64C3C;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Inter', sans-serif;
+            color: var(--midnight-charcoal);
+        }
+
+        .signup-page {
+            padding-top: 120px;
+            padding-bottom: 80px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .auth-card {
+            background-color: var(--porcelain-white);
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .auth-card .shape {
+            position: absolute;
+            z-index: 0;
+            border-radius: 50%;
+        }
+
+        .auth-card .shape-1 {
+            width: 200px;
+            height: 200px;
+            background: rgba(194, 188, 222, 0.2);
+            top: -80px;
+            right: -100px;
+        }
+
+        .auth-card .shape-2 {
+            width: 150px;
+            height: 150px;
+            background: rgba(255, 92, 106, 0.1);
+            bottom: -60px;
+            left: -70px;
+        }
+
+        .auth-image {
+            background: linear-gradient(135deg, var(--sky-lavender), var(--watermelon-red));
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--porcelain-white);
+            padding: 40px;
+            text-align: center;
+        }
+
+        .auth-image h2 {
+            font-family: 'Sora', sans-serif;
+            font-weight: 700;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .auth-image p {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .auth-content {
+            padding: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .auth-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .auth-header h3 {
+            font-family: 'Sora', sans-serif;
+            color: var(--midnight-charcoal);
+            font-weight: 700;
+            font-size: 1.75rem;
+            margin-bottom: 10px;
+        }
+
+        .auth-header p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .social-auth {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .social-auth-btn {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            background-color: var(--porcelain-white);
+            font-weight: 500;
+            color: var(--midnight-charcoal);
+            transition: all 0.3s ease;
+        }
+
+        .social-auth-btn:hover {
+            background-color: #f5f5f5;
+            border-color: #ccc;
+        }
+
+        .social-auth-btn i {
+            margin-right: 10px;
+        }
+
+        .divider {
+            text-align: center;
+            position: relative;
+            margin: 25px 0;
+        }
+
+        .divider span {
+            background-color: var(--porcelain-white);
+            padding: 0 15px;
+            position: relative;
+            z-index: 1;
+            color: #777;
+            font-size: 0.85rem;
+        }
+
+        .divider:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background-color: #e0e0e0;
+        }
+
+        .form-floating {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            border-radius: 8px;
+            padding: 12px 15px;
+            height: auto;
+            font-size: 1rem;
+            border: 1px solid #e0e0e0;
+        }
+
+        .form-control:focus {
+            box-shadow: 0 0 0 3px rgba(194, 188, 222, 0.25);
+            border-color: var(--sky-lavender);
+        }
+
+        .form-floating label {
+            padding: 12px 15px;
+        }
+
+        .row-cols-1 > .col {
+            margin-bottom: 20px;
+        }
+
+        .account-type {
+            margin-bottom: 20px;
+        }
+
+        .account-type-label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 500;
+            color: var(--midnight-charcoal);
+        }
+
+        .account-type-options {
+            display: flex;
+            gap: 15px;
+        }
+
+        .account-type-option {
+            flex: 1;
+            position: relative;
+        }
+
+        .account-type-option input {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .account-type-option label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .account-type-option input:checked + label {
+            border-color: var(--watermelon-red);
+            background-color: rgba(255, 92, 106, 0.05);
+        }
+
+        .account-type-option i {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: var(--watermelon-red);
+        }
+
+        .account-type-option .type-name {
+            font-weight: 600;
+            color: var(--midnight-charcoal);
+            margin-bottom: 5px;
+        }
+
+        .account-type-option .type-desc {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .terms-check {
+            margin-bottom: 25px;
+        }
+
+        .terms-check a {
+            color: var(--pacific-blue);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .terms-check a:hover {
+            color: var(--watermelon-red);
+            text-decoration: underline;
+        }
+
+        .btn-signup-submit {
+            background: linear-gradient(135deg, var(--sky-lavender), var(--watermelon-red));
+            color: var(--porcelain-white);
+            border: none;
+            border-radius: 8px;
+            padding: 12px 15px;
+            font-size: 1rem;
+            font-weight: 600;
+            width: 100%;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-signup-submit:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(255, 92, 106, 0.2);
+        }
+
+        .auth-redirect {
+            text-align: center;
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .auth-redirect a {
+            color: var(--pacific-blue);
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .auth-redirect a:hover {
+            color: var(--watermelon-red);
+            text-decoration: underline;
+        }
+
+        @media (max-width: 991px) {
+            .auth-image {
+                display: none;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .account-type-options {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
+    <nav class="navbar navbar-expand-lg fixed-top" role="navigation" aria-label="Primary navigation">
+        <div class="container">
+            <a class="navbar-brand" href="index.html" aria-label="ArtSpire Home">Art<span>Spire</span></a>
+            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#mobileNav" aria-controls="mobileNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse d-none d-lg-flex" id="navbarNav">
+                <ul class="navbar-nav ms-auto me-3">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="artists.html">Artists</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="uploadartwork.html">Upload</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="community.html">Community</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <div class="auth-buttons">
+                    <a href="login.html" class="btn btn-login">Log In</a>
+                    <a href="signup.html" class="btn btn-signup active">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileNav" aria-labelledby="mobileNavLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="mobileNavLabel">Art<span>Spire</span></h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav mobile-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="gallery.html">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="artists.html">Artists</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="uploadartwork.html">Upload</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="community.html">Community</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+            </ul>
+            <div class="mobile-auth-buttons mt-4">
+                <a href="login.html" class="btn btn-login w-100 mb-2">Log In</a>
+                <a href="signup.html" class="btn btn-signup w-100 active">Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="signup-page" id="main-content">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="auth-card">
+                        <div class="shape shape-1"></div>
+                        <div class="shape shape-2"></div>
+                        <div class="row g-0">
+                            <div class="col-lg-6">
+                                <div class="auth-image">
+                                    <div>
+                                        <h2>Join Our Creative Community</h2>
+                                        <p>Share your artwork, connect with fellow artists, and grow your creative journey with ArtSpire.</p>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="auth-content">
+                                    <div class="auth-header">
+                                        <h3>Create an Account</h3>
+                                        <p>Start your artistic journey today</p>
+                                    </div>
+                                   
+                                    <div class="divider">
+                                        <span>SIGN UP WITH EMAIL</span>
+                                    </div>
+                                    <form action="#" method="post">
+                                        <div class="row row-cols-1 row-cols-md-2">
+                                            <div class="col">
+                                                <div class="form-floating">
+                                                    <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required>
+                                                    <label for="firstName">First Name</label>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-floating">
+                                                    <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required>
+                                                    <label for="lastName">Last Name</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-floating">
+                                            <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                                            <label for="email">Email address</label>
+                                        </div>
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
+                                            <label for="username">Username</label>
+                                        </div>
+                                        <div class="form-floating">
+                                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                                            <label for="password">Password</label>
+                                        </div>
+                                        
+                                        <div class="account-type">
+                                            <label class="account-type-label">I am joining as:</label>
+                                            <div class="account-type-options">
+                                                <div class="account-type-option">
+                                                    <input type="radio" name="accountType" id="artist" value="artist" checked>
+                                                    <label for="artist">
+                                                        <i class="fas fa-palette"></i>
+                                                        <div class="type-name">Artist</div>
+                                                        <div class="type-desc">I create and share artwork</div>
+                                                    </label>
+                                                </div>
+                                                <div class="account-type-option">
+                                                    <input type="radio" name="accountType" id="collector" value="collector">
+                                                    <label for="collector">
+                                                        <i class="fas fa-images"></i>
+                                                        <div class="type-name">Art Lover</div>
+                                                        <div class="type-desc">I appreciate and collect art</div>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="terms-check form-check">
+                                            <input class="form-check-input" type="checkbox" id="termsCheck" required>
+                                            <label class="form-check-label" for="termsCheck">
+                                                I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                                            </label>
+                                        </div>
+                                        
+                                        <button type="submit" class="btn btn-signup-submit">Create Account</button>
+                                        <div class="auth-redirect">
+                                            <p>Already have an account? <a href="login.html">Log in</a></p>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 footer-about">
+                    <div class="footer-logo">Art<span>Spire</span></div>
+                    <p>A creative hub designed for artists and art enthusiasts to share, showcase, and discover artwork
+                        from around the world.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="artists.html">Artists</a></li>
+                        <li><a href="community.html">Community</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="footer-heading">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="footer-heading">Contact Us</h4>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>123 Art Street, Creative City, AC 12345</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>(123) 456-7890</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>hello@artspire.com</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>© 2025 ArtSpire. All Rights Reserved. Designed with <i class="fas fa-heart"
+                        style="color: var(--watermelon-red);"></i> for artists.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="back-to-top" class="back-to-top-btn" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

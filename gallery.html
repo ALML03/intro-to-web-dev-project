@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtSpire - Art Gallery</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Sora:wght@600;700&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body class="gallery-page">
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top" role="navigation" aria-label="Primary navigation">
+        <div class="container">
+            <a class="navbar-brand" href="index.html" aria-label="ArtSpire Home">Art<span>Spire</span></a>
+            <!-- Mobile Only: Hamburger Button -->
+            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#mobileNav" aria-controls="mobileNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <!-- Desktop Navigation -->
+            <div class="collapse navbar-collapse d-none d-lg-flex" id="navbarNav">
+                <ul class="navbar-nav ms-auto me-3">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="gallery.html" aria-current="page">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="artists.html">Artists</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="uploadartwork.html">Upload</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="community.html">Community</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <div class="auth-buttons">
+                    <a href="login.html" class="btn btn-login">Log In</a>
+                    <a href="signup.html" class="btn btn-signup">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Offcanvas Navigation -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileNav" aria-labelledby="mobileNavLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="mobileNavLabel">Art<span>Spire</span></h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav mobile-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="gallery.html" aria-current="page">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="artists.html">Artists</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="uploadartwork.html">Upload</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="community.html">Community</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+            </ul>
+            <div class="mobile-auth-buttons mt-4">
+                <a href="login.html" class="btn btn-login w-100 mb-2">Log In</a>
+                <a href="signup.html" class="btn btn-signup w-100">Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery Hero Section -->
+    <section class="gallery-hero" id="main-content">
+        <div class="container">
+            <h1>Art Gallery</h1>
+            <p>Discover and explore amazing artworks from our creative community</p>
+        </div>
+    </section>
+
+    <!-- Gallery Filters -->
+    <section class="gallery-filters">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="d-flex justify-content-center flex-wrap">
+                        <button class="filter-btn active" data-filter="all">All Categories</button>
+                        <button class="filter-btn" data-filter="digital-art">Digital Art</button>
+                        <button class="filter-btn" data-filter="painting">Painting</button>
+                        <button class="filter-btn" data-filter="sculpture">Sculpture</button>
+                        <button class="filter-btn" data-filter="photography">Photography</button>
+                        <button class="filter-btn" data-filter="watercolor">Watercolor</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="gallery-grid">
+        <div class="container">
+            <div class="row">
+                <!-- Artwork 1 -->
+                <div class="col-lg-4 col-md-6 gallery-item" data-category="digital-art">
+                    <div class="gallery-img">
+                        <img src="Artworks/DREAMSCAPE ODYSSEY.png" alt="Cosmic Dreams by Elena Rodriguez">
+                        <div class="gallery-overlay"></div>
+                        <div class="gallery-actions">
+                            <button class="gallery-action-btn" aria-label="Like artwork">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                            <button class="gallery-action-btn" aria-label="Comment on artwork">
+                                <i class="fas fa-comment"></i>
+                            </button>
+                            <button class="gallery-action-btn" aria-label="Save artwork">
+                                <i class="fas fa-bookmark"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="gallery-content">
+                        <h3 class="gallery-title">Cosmic Dreams</h3>
+                        <div class="gallery-artist">
+                            <div class="artist-avatar">
+                                <img src="Pictures/Elena Rodriguez.jpg" alt="Elena Rodriguez">
+                            </div>
+                            <div class="artist-name">by Elena Rodriguez</div>
+                        </div>
+                        <div class="gallery-tags">
+                            <span class="gallery-tag">Digital Art</span>
+                            <span class="gallery-tag">Space</span>
+                            <span class="gallery-tag">Abstract</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Artwork 2 -->
+                <div class="col-lg-4 col-md-6 gallery-item" data-category="painting">
+                    <div class="gallery-img">
+                        <img src="Artworks/Urban Fragments.png" alt="City Lights by Marcus Chen">
+                        <div class="gallery-overlay"></div>
+                        <div class="gallery-actions">
+                            <button class="gallery-action-btn" aria-label="Like artwork">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                            <button class="gallery-action-btn" aria-label="Comment on artwork">
+                                <i class="fas fa-comment"></i>
+                            </button>
+                            <button class="gallery-action-btn" aria-label="Save artwork">
+                                <i class="fas fa-bookmark"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="gallery-content">
+                        <h3 class="gallery-title">City Lights</h3>
+                        <div class="gallery-artist">
+                            <div class="artist-avatar">
+                                <img src="Pictures/Marcus Chen.jpg" alt="Marcus Chen">
+                            </div>
+                            <div class="artist-name">by Marcus Chen</div>
+                        </div>
+                        <div class="gallery-tags">
+                            <span class="gallery-tag">Oil Painting</span>
+                            <span class="gallery-tag">Urban</span>
+                            <span class="gallery-tag">Night</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Artwork 3 -->
+                <div class="col-lg-4 col-md-6 gallery-item" data-category="sculpture">
+                    <div class="gallery-img">
+                        <img src="Artworks/ANCESTRAL ECHOES.png" alt="Heritage Memories by Amara Okafor">
+                        <div class="gallery-overlay"></div>
+                        <div class="gallery-actions">
+                            <button class="gallery-action-btn" aria-label="Like artwork">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                            <button class="gallery-action-btn" aria-label="Comment on artwork">
+                                <i class="fas fa-comment"></i>
+                            </button>
+                            <button class="gallery-action-btn" aria-label="Save artwork">
+                                <i class="fas fa-bookmark"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="gallery-content">
+                        <h3 class="gallery-title">Heritage Memories</h3>
+                        <div class="gallery-artist">
+                            <div class="artist-avatar">
+                                <img src="Pictures/Amara Okafor.jpg" alt="Amara Okafor">
+                            </div>
+                            <div class="artist-name">by Amara Okafor</div>
+                        </div>
+                        <div class="gallery-tags">
+                            <span class="gallery-tag">Sculpture</span>
+                            <span class="gallery-tag">Bronze</span>
+                            <span class="gallery-tag">Heritage</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Artwork 4 -->
+                <div class="col-lg-4 col-md-6 gallery-item" data-category="photography">
+                    <div class="gallery-img">
+                        <img src="/api/placeholder/400/320" alt="Golden Hour by Sarah Mitchell">
+                        <div class="gallery-overlay"></div>
+                        <div class="gallery-actions">
+                            <button class="gallery-action-btn" aria-label="Like artwork">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                            <button class="gallery-action-btn" aria-label="Comment on artwork">
+                                <i class="fas fa-comment"></i>
+                            </button>
+                            <button class="gallery-action-btn" aria-label="Save artwork">
+                                <i class="fas fa-bookmark"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="gallery-content">
+                        <h3 class="gallery-title">Golden Hour</h3>
+                        <div class="gallery-artist">
+                            <div class="artist-avatar">
+                                <img src="/api/placeholder/30/30" alt="Sarah Mitchell">
+                            </div>
+                            <div class="artist-name">by Sarah Mitchell</div>
+                        </div>
+                        <div class="gallery-tags">
+                            <span class="gallery-tag">Photography</span>
+                            <span class="gallery-tag">Landscape</span>
+                            <span class="gallery-tag">Nature</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Artwork 5 -->
+                <div class="col-lg-4 col-md-6 gallery-item" data-category="digital-art">
+                    <div class="gallery-img">
+                        <img src="/api/placeholder/400/320" alt="Neon Cyberpunk by Jake Thompson">
+                        <div class="gallery-overlay"></div>
+                        <div class="gallery-actions">
+                            <button class="gallery-action-btn" aria-label="Like artwork">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                            <button class="gallery-action-btn" aria-label="Comment on artwork">
+                                <i class="fas fa-comment"></i>
+                            </button>
+                            <button class="gallery-action-btn" aria-label="Save artwork">
+                                <i class="fas fa-bookmark"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="gallery-content">
+                        <h3 class="gallery-title">Neon Cyberpunk</h3>
+                        <div class="gallery-artist">
+                            <div class="artist-avatar">
+                                <img src="/api/placeholder/30/30" alt="Jake Thompson">
+                            </div>
+                            <div class="artist-name">by Jake Thompson</div>
+                        </div>
+                        <div class="gallery-tags">
+                            <span class="gallery-tag">Digital Art</span>
+                            <span class="gallery-tag">Cyberpunk</span>
+                            <span class="gallery-tag">Futuristic</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Artwork 6 -->
+                <div class="col-lg-4 col-md-6 gallery-item" data-category="watercolor">
+                    <div class="gallery-img">
+                        <img src="/api/placeholder/400/320" alt="Ocean Serenity by Lisa Park">
+                        <div class="gallery-overlay"></div>
+                        <div class="gallery-actions">
+                            <button class="gallery-action-btn" aria-label="Like artwork">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                            <button class="gallery-action-btn" aria-label="Comment on artwork">
+                                <i class="fas fa-comment"></i>
+                            </button>
+                            <button class="gallery-action-btn" aria-label="Save artwork">
+                                <i class="fas fa-bookmark"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="gallery-content">
+                        <h3 class="gallery-title">Ocean Serenity</h3>
+                        <div class="gallery-artist">
+                            <div class="artist-avatar">
+                                <img src="/api/placeholder/30/30" alt="Lisa Park">
+                            </div>
+                            <div class="artist-name">by Lisa Park</div>
+                        </div>
+                        <div class="gallery-tags">
+                            <span class="gallery-tag">Watercolor</span>
+                            <span class="gallery-tag">Ocean</span>
+                            <span class="gallery-tag">Peaceful</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <!-- About -->
+                <div class="col-lg-4 col-md-6 footer-about">
+                    <div class="footer-logo">Art<span>Spire</span></div>
+                    <p>A creative hub designed for artists and art enthusiasts to share, showcase, and discover artwork
+                        from around the world.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-6">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="artists.html">Artists</a></li>
+                        <li><a href="community.html">Community</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="footer-heading">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="footer-heading">Contact Us</h4>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>123 Art Street, Creative City, AC 12345</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>(123) 456-7890</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>hello@artspire.com</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="copyright">
+                <p>© 2025 ArtSpire. All Rights Reserved. Designed with <i class="fas fa-heart"
+                        style="color: var(--watermelon-red);"></i> for artists.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button id="back-to-top" class="back-to-top-btn" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+
+    <!-- Gallery Specific JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Gallery Filtering
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+
+                    const filterValue = this.getAttribute('data-filter');
+
+                    galleryItems.forEach(item => {
+                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Like functionality
+            const likeButtons = document.querySelectorAll('.gallery-action-btn:nth-child(1)');
+            likeButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    this.classList.toggle('liked');
+                    if (this.classList.contains('liked')) {
+                        this.querySelector('i').style.color = '#ff6b6b';
+                    } else {
+                        this.querySelector('i').style.color = '';
+                    }
+                });
+            });
+
+            // Search functionality
+            const searchForm = document.getElementById('gallery-search-form');
+            const searchInput = document.getElementById('gallery-search');
+
+            searchForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const searchTerm = searchInput.value.toLowerCase().trim();
+
+                if (searchTerm === '') {
+                    // If search is empty, show all items
+                    galleryItems.forEach(item => item.style.display = 'block');
+                    return;
+                }
+
+                galleryItems.forEach(item => {
+                    const title = item.querySelector('.gallery-title').textContent.toLowerCase();
+                    const artist = item.querySelector('.artist-name').textContent.toLowerCase();
+                    const tags = Array.from(item.querySelectorAll('.gallery-tag')).map(tag => tag.textContent.toLowerCase());
+
+                    // Check if search term matches title, artist name, or any tag
+                    if (title.includes(searchTerm) ||
+                        artist.includes(searchTerm) ||
+                        tags.some(tag => tag.includes(searchTerm))) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+
+                // Reset filter buttons to show 'All' as active
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
+            });
+        });
+    </script>
+</body>
+
+</html>
