@@ -8,51 +8,53 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Sora:wght@600;700&display=swap"
+        rel="stylesheet">
     <style>
-    :root {
-        --midnight-charcoal: #2E2E2E;
-        --porcelain-white: #FFFFFF;
-        --watermelon-red: #FF5C6A;
-        --honey-mustard: #FEBD3B;
-        --sky-lavender: #C2BCDE;
-        --pacific-blue: #3EAEDF;
-        --jade-green: #21CA86;
-        --coral-red: #E64C3C;
-    }
-
-    body {
-        background-color: #f8f9fa;
-        font-family: 'Inter', sans-serif;
-        color: var(--midnight-charcoal);
-    }
-
-    .login-page {
-        padding-top: 120px;
-        padding-bottom: 80px;
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-    }
-
-    .auth-card {
-        background-color: var(--porcelain-white);
-        border-radius: 16px;
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-        overflow: hidden;
-        position: relative;
-    }
-
-    .auth-card .shape {
-        position: absolute;
-    }
-
-    @media (max-width: 991px) {
-        .auth-image {
-            display: none;
+        :root {
+            --midnight-charcoal: #2E2E2E;
+            --porcelain-white: #FFFFFF;
+            --watermelon-red: #FF5C6A;
+            --honey-mustard: #FEBD3B;
+            --sky-lavender: #C2BCDE;
+            --pacific-blue: #3EAEDF;
+            --jade-green: #21CA86;
+            --coral-red: #E64C3C;
         }
-    }
-</style>
+
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Inter', sans-serif;
+            color: var(--midnight-charcoal);
+        }
+
+        .login-page {
+            padding-top: 120px;
+            padding-bottom: 80px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .auth-card {
+            background-color: var(--porcelain-white);
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .auth-card .shape {
+            position: absolute;
+        }
+
+        @media (max-width: 991px) {
+            .auth-image {
+                display: none;
+            }
+        }
+    </style>
 
 </head>
 
@@ -147,7 +149,8 @@
                                 <div class="auth-image">
                                     <div>
                                         <h2>Welcome Back to ArtSpire!</h2>
-                                        <p>Log in to continue your artistic journey, connect with fellow creators, and showcase your latest masterpieces.</p>
+                                        <p>Log in to continue your artistic journey, connect with fellow creators, and
+                                            showcase your latest masterpieces.</p>
                                         <img src="/api/placeholder/350/200" alt="Login illustration" class="img-fluid">
                                     </div>
                                 </div>
@@ -171,11 +174,13 @@
                                     </div>
                                     <form action="#" method="post">
                                         <div class="form-floating">
-                                            <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                                            <input type="email" class="form-control" id="email" name="email"
+                                                placeholder="Email" required>
                                             <label for="email">Email address</label>
                                         </div>
                                         <div class="form-floating">
-                                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                                            <input type="password" class="form-control" id="password" name="password"
+                                                placeholder="Password" required>
                                             <label for="password">Password</label>
                                         </div>
                                         <div class="auth-footer">

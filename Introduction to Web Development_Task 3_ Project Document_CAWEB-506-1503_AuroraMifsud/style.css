@@ -910,38 +910,38 @@ footer {
 
 .index-page {
 
-.btn-login,
-.btn-signup {
-    background-color: #3EAEDF;
-    color: white;
-    border: none;
-    padding: 8px 20px;
-    border-radius: 6px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
-
-.btn-login:hover,
-.btn-signup:hover {
-    background-color: #2c9bc7;
-    color: white;
-    transform: translateY(-2px);
-}
-
-.auth-buttons {
-    display: flex;
-    gap: 10px;
-    margin-left: 15px;
-}
-
-@media (max-width: 991px) {
-
-    .mobile-auth-buttons .btn-login,
-    .mobile-auth-buttons .btn-signup {
+    .btn-login,
+    .btn-signup {
         background-color: #3EAEDF;
         color: white;
+        border: none;
+        padding: 8px 20px;
+        border-radius: 6px;
+        font-weight: 500;
+        transition: all 0.3s ease;
     }
-}
+
+    .btn-login:hover,
+    .btn-signup:hover {
+        background-color: #2c9bc7;
+        color: white;
+        transform: translateY(-2px);
+    }
+
+    .auth-buttons {
+        display: flex;
+        gap: 10px;
+        margin-left: 15px;
+    }
+
+    @media (max-width: 991px) {
+
+        .mobile-auth-buttons .btn-login,
+        .mobile-auth-buttons .btn-signup {
+            background-color: #3EAEDF;
+            color: white;
+        }
+    }
 }
 
 

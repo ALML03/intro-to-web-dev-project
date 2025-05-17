@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,17 +11,21 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Sora:wght@600;700&display=swap"
+        rel="stylesheet">
 
 </head>
+
 <body class="uploudpage-page">
     <a href="#main-content" class="skip-to-main">Skip to main content</a>
 
     <nav class="navbar navbar-expand-lg fixed-top" role="navigation" aria-label="Primary navigation">
         <div class="container">
             <a class="navbar-brand" href="index.html" aria-label="ArtSpire Home">Art<span>Spire</span></a>
-            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileNav" 
-                    aria-controls="mobileNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#mobileNav" aria-controls="mobileNav" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse d-none d-lg-flex" id="navbarNav">
@@ -54,7 +59,7 @@
             </div>
         </div>
     </nav>
-    
+
     <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileNav" aria-labelledby="mobileNavLabel">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="mobileNavLabel">Art<span>Spire</span></h5>
@@ -97,12 +102,13 @@
                 <h1>Upload Your Artwork</h1>
                 <p>Share your creativity with the ArtSpire community. Upload your artwork and let it inspire others.</p>
             </div>
-            
+
             <div class="auth-alert mb-4">
                 <i class="fas fa-info-circle"></i>
-                <strong>Authentication Required:</strong> You must be <strong>logged in</strong> to upload artwork. Don't have an account? <a href="signup.html">Sign up here</a>.
+                <strong>Authentication Required:</strong> You must be <strong>logged in</strong> to upload artwork.
+                Don't have an account? <a href="signup.html">Sign up here</a>.
             </div>
-            
+
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <form class="upload-form">
@@ -115,21 +121,25 @@
                                 <div class="upload-subtext">or click to browse files</div>
                             </div>
                             <div class="form-text">Supported formats: JPG, PNG, GIF (Max size: 5MB)</div>
-                            <input type="file" id="artwork-image" name="artwork-image" accept="image/jpeg,image/png,image/gif" class="form-control d-none" required>
+                            <input type="file" id="artwork-image" name="artwork-image"
+                                accept="image/jpeg,image/png,image/gif" class="form-control d-none" required>
                         </div>
-                        
+
                         <div class="mb-4">
                             <label for="artwork-title" class="form-label required-field">Artwork Title</label>
-                            <input type="text" class="form-control" id="artwork-title" name="artwork-title" maxlength="100" required>
+                            <input type="text" class="form-control" id="artwork-title" name="artwork-title"
+                                maxlength="100" required>
                             <div class="form-text">Give your artwork a compelling title (max 100 characters)</div>
                         </div>
-                        
+
                         <div class="mb-4">
                             <label for="artwork-description" class="form-label required-field">Description</label>
-                            <textarea class="form-control" id="artwork-description" name="artwork-description" rows="4" maxlength="500" required></textarea>
-                            <div class="form-text">Tell us about your artwork, inspiration, or technique (max 500 characters)</div>
+                            <textarea class="form-control" id="artwork-description" name="artwork-description" rows="4"
+                                maxlength="500" required></textarea>
+                            <div class="form-text">Tell us about your artwork, inspiration, or technique (max 500
+                                characters)</div>
                         </div>
-                        
+
                         <div class="mb-4">
                             <label for="artwork-category" class="form-label required-field">Category</label>
                             <select class="form-select" id="artwork-category" name="artwork-category" required>
@@ -148,18 +158,19 @@
                             </select>
                             <div class="form-text">Choose the category that best describes your artwork</div>
                         </div>
-                        
+
                         <!--tags here -->
                         <div class="mb-4">
                             <label for="artwork-tags" class="form-label">Tags</label>
-                            <input type="text" class="form-control" id="artwork-tags" name="artwork-tags" placeholder="Type tag and press Enter">
+                            <input type="text" class="form-control" id="artwork-tags" name="artwork-tags"
+                                placeholder="Type tag and press Enter">
                             <div class="form-text">Add tags to help others discover your artwork (max 5 tags)</div>
-                            
+
                             <div class="tag-input-container" id="tag-container">
                                 <!--tags will be displayed here -->
                             </div>
                         </div>
-                        
+
                         <div class="text-center">
                             <button type="submit" class="btn btn-submit">Upload Artwork</button>
                         </div>
@@ -174,7 +185,8 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6 footer-about">
                     <div class="footer-logo">Art<span>Spire</span></div>
-                    <p>A creative hub designed for artists and art enthusiasts to share, showcase, and discover artwork from around the world.</p>
+                    <p>A creative hub designed for artists and art enthusiasts to share, showcase, and discover artwork
+                        from around the world.</p>
                     <div class="social-links">
                         <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
@@ -182,7 +194,7 @@
                         <a href="#" class="social-link" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-2 col-md-6">
                     <h4 class="footer-heading">Quick Links</h4>
                     <ul class="footer-links">
@@ -193,7 +205,7 @@
                         <li><a href="contact.html">Contact Us</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="col-lg-3 col-md-6">
                     <h4 class="footer-heading">Support</h4>
                     <ul class="footer-links">
@@ -204,7 +216,7 @@
                         <li><a href="#">FAQs</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="col-lg-3 col-md-6">
                     <h4 class="footer-heading">Contact Us</h4>
                     <div class="footer-contact-item">
@@ -221,9 +233,10 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="copyright">
-                <p>© 2025 ArtSpire. All Rights Reserved. Designed with <i class="fas fa-heart" style="color: var(--watermelon-red);"></i> for artists.</p>
+                <p>© 2025 ArtSpire. All Rights Reserved. Designed with <i class="fas fa-heart"
+                        style="color: var(--watermelon-red);"></i> for artists.</p>
             </div>
         </div>
     </footer>
@@ -234,86 +247,86 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
-    
+
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const uploadArea = document.getElementById('upload-area');
             const fileInput = document.getElementById('artwork-image');
-            
-            uploadArea.addEventListener('click', function() {
+
+            uploadArea.addEventListener('click', function () {
                 fileInput.click();
             });
-            
-            uploadArea.addEventListener('dragover', function(e) {
+
+            uploadArea.addEventListener('dragover', function (e) {
                 e.preventDefault();
                 uploadArea.classList.add('border-primary');
             });
-            
-            uploadArea.addEventListener('dragleave', function() {
+
+            uploadArea.addEventListener('dragleave', function () {
                 uploadArea.classList.remove('border-primary');
             });
-            
-            uploadArea.addEventListener('drop', function(e) {
+
+            uploadArea.addEventListener('drop', function (e) {
                 e.preventDefault();
                 uploadArea.classList.remove('border-primary');
-                
+
                 if (e.dataTransfer.files.length) {
                     fileInput.files = e.dataTransfer.files;
                     updateUploadAreaWithFileName(e.dataTransfer.files[0].name);
                 }
             });
-            
-            fileInput.addEventListener('change', function() {
+
+            fileInput.addEventListener('change', function () {
                 if (fileInput.files.length) {
                     updateUploadAreaWithFileName(fileInput.files[0].name);
                 }
             });
-            
+
             function updateUploadAreaWithFileName(fileName) {
                 const uploadText = uploadArea.querySelector('.upload-text');
                 uploadText.textContent = `Selected: ${fileName}`;
             }
-            
+
             // Tags functionality
             const tagInput = document.getElementById('artwork-tags');
             const tagContainer = document.getElementById('tag-container');
             let tags = [];
-            
-            tagInput.addEventListener('keydown', function(e) {
+
+            tagInput.addEventListener('keydown', function (e) {
                 if (e.key === 'Enter' || e.key === ',') {
                     e.preventDefault();
                     addTag();
                 }
             });
-            
+
             function addTag() {
                 const tagValue = tagInput.value.trim();
-                
+
                 if (tagValue && !tags.includes(tagValue) && tags.length < 5) {
                     tags.push(tagValue);
                     renderTags();
                     tagInput.value = '';
                 }
-                
+
                 if (tags.length >= 5) {
                     tagInput.disabled = true;
                     tagInput.placeholder = 'Maximum 5 tags reached';
                 }
             }
-            
+
             function removeTag(index) {
                 tags.splice(index, 1);
                 renderTags();
-                
+
                 if (tags.length < 5) {
                     tagInput.disabled = false;
                     tagInput.placeholder = 'Type tag and press Enter';
                 }
             }
-            
+
             function renderTags() {
                 tagContainer.innerHTML = '';
-                
+
                 tags.forEach((tag, index) => {
                     const tagElement = document.createElement('div');
                     tagElement.classList.add('tag');
@@ -325,30 +338,30 @@
                     `;
                     tagContainer.appendChild(tagElement);
                 });
-                
+
                 document.querySelectorAll('.tag-remove').forEach(button => {
-                    button.addEventListener('click', function() {
+                    button.addEventListener('click', function () {
                         const index = parseInt(this.getAttribute('data-index'));
                         removeTag(index);
                     });
                 });
             }
-            
+
             // for submission of the form
             const uploadForm = document.querySelector('.upload-form');
-            
-            uploadForm.addEventListener('submit', function(e) {
+
+            uploadForm.addEventListener('submit', function (e) {
                 e.preventDefault();
-                
+
                 // to check if user is logged in
                 const isLoggedIn = false;
-                
+
                 if (!isLoggedIn) {
                     alert('Please log in to upload artwork.');
                     window.location.href = 'login.html';
                     return;
                 }
-                
+
                 // if logged in, the submission will be successful
                 alert('Artwork submitted successfully!');
                 uploadForm.reset();
@@ -360,4 +373,5 @@
         });
     </script>
 </body>
+
 </html>

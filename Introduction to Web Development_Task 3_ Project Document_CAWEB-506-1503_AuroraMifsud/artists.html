@@ -104,17 +104,17 @@
 
     <br>
     <br>
-    <br>    
+    <br>
     <br>
     <br>
     <br>
 
-<section class="page-header" id="main-content">
-  <div class="container" style="text-align: center;">
-    <h1>Our Artists</h1>
-    <p>Discover talented creators from around the world</p>
-  </div>
-</section>
+    <section class="page-header" id="main-content">
+        <div class="container" style="text-align: center;">
+            <h1>Our Artists</h1>
+            <p>Discover talented creators from around the world</p>
+        </div>
+    </section>
 
 
     <!-- Filter and Sort Section -->
@@ -131,7 +131,7 @@
                 </div>
             </div>
 
-            <!-- Artists Grid -->
+            <!-- Grid -->
             <section class="artists-grid">
                 <div class="container">
                     <div class="row">
@@ -139,7 +139,7 @@
                         <div class="col-lg-4 col-md-6 mb-4" data-category="digital-art">
                             <div class="artist-profile-card card">
                                 <div class="artist-header">
-                                    <img src="Emma Rodriguez.jpg" alt="Elena Rodriguez" class="artist-img">
+                                    <img src="Pictures/Emma Rodriguez.jpg" alt="Elena Rodriguez" class="artist-img">
                                     <div class="artist-info">
                                         <h2 class="artist-name">Elena Rodriguez</h2>
                                         <p class="artist-title">Digital Artist</p>
@@ -183,7 +183,7 @@
                         <div class="col-lg-4 col-md-6 mb-4" data-category="painting">
                             <div class="artist-profile-card card">
                                 <div class="artist-header">
-                                    <img src="Marcus Chen.jpg" alt="Marcus Chen" class="artist-img">
+                                    <img src="Pictures/Marcus Chen.jpg" alt="Marcus Chen" class="artist-img">
                                     <div class="artist-info">
                                         <h2 class="artist-name">Marcus Chen</h2>
                                         <p class="artist-title">Oil Painter</p>
@@ -226,7 +226,7 @@
                         <div class="col-lg-4 col-md-6 mb-4" data-category="sculpture">
                             <div class="artist-profile-card card">
                                 <div class="artist-header">
-                                    <img src="Sarah Johnson.jpg" Amara Okafor" class="artist-img">
+                                    <img src="Pictures/Sarah Johnson.jpg" Amara Okafor" class="artist-img">
                                     <div class="artist-info">
                                         <h2 class="artist-name">Amara Okafor</h2>
                                         <p class="artist-title">Sculptor</p>
@@ -268,7 +268,7 @@
                         <div class="col-lg-4 col-md-6 mb-4" data-category="photography">
                             <div class="artist-profile-card card">
                                 <div class="artist-header">
-                                    <img src="David Thompson.jpg" alt="Carlos Méndez" class="artist-img">
+                                    <img src="Pictures/David Thompson.jpg" alt="Carlos Méndez" class="artist-img">
                                     <div class="artist-info">
                                         <h2 class="artist-name">Carlos Méndez</h2>
                                         <p class="artist-title">Photographer</p>
@@ -311,7 +311,7 @@
                         <div class="col-lg-4 col-md-6 mb-4" data-category="mixed-media">
                             <div class="artist-profile-card card">
                                 <div class="artist-header">
-                                    <img src="michael-dam-mEZ3PoFGs_k-unsplash.jpg" alt="Sarah Thompson"
+                                    <img src="Pictures/michael-dam-mEZ3PoFGs_k-unsplash.jpg" alt="Sarah Thompson"
                                         class="artist-img">
                                     <div class="artist-info">
                                         <h2 class="artist-name">Sarah Thompson</h2>
@@ -355,7 +355,7 @@
                         <div class="col-lg-4 col-md-6 mb-4" data-category="digital-art">
                             <div class="artist-profile-card card">
                                 <div class="artist-header">
-                                    <img src="Yuki_Tanaka.jpg" alt="Yuki Tanaka" class="artist-img">
+                                    <img src="Pictures/Yuki_Tanaka.jpg" alt="Yuki Tanaka" class="artist-img">
                                     <div class="artist-info">
                                         <h2 class="artist-name">Yuki Tanaka</h2>
                                         <p class="artist-title">Illustrator</p>
@@ -394,20 +394,20 @@
                             </div>
                         </div>
                     </div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
 
                     <footer>
                         <div class="container">
                             <div class="row">
-                           
+
                                 <div class="col-lg-4 col-md-6 footer-about">
                                     <div class="footer-logo">Art<span>Spire</span></div>
                                     <p>A creative hub designed for artists and art enthusiasts to share, showcase, and
@@ -474,13 +474,10 @@
                         <i class="fas fa-chevron-up"></i>
                     </button>
 
-                    <!-- Bootstrap JS -->
                     <script
                         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-                    <!-- Custom JS -->
                     <script src="script.js"></script>
 
-                    <!-- Artists Page Specific JS -->
                     <script>
                         document.addEventListener('DOMContentLoaded', function () {
                             const filterButtons = document.querySelectorAll('.filter-btn');
@@ -507,7 +504,6 @@
 
 
 
-                            // Follow button functionality
                             followButtons.forEach(button => {
                                 button.addEventListener('click', function () {
                                     if (this.classList.contains('following')) {
@@ -517,13 +513,11 @@
                                         this.classList.add('following');
                                         this.innerHTML = '<i class="fas fa-check"></i> Following';
 
-                                        // Show feedback notification
                                         showNotification('Artist followed successfully!');
                                     }
                                 });
                             });
 
-                            // Function to apply filters
                             function applyFilters() {
                                 artistCards.forEach(card => {
                                     const category = card.getAttribute('data-category');
@@ -552,22 +546,17 @@
                                 });
                             }
 
-                            // Notification system
                             function showNotification(message) {
-                                // Create notification element
                                 const notification = document.createElement('div');
                                 notification.className = 'notification';
                                 notification.textContent = message;
 
-                                // Add to document
                                 document.body.appendChild(notification);
 
-                                // Show with animation
                                 setTimeout(() => {
                                     notification.classList.add('show');
                                 }, 10);
 
-                                // Remove after 3 seconds
                                 setTimeout(() => {
                                     notification.classList.remove('show');
                                     setTimeout(() => {
@@ -577,7 +566,7 @@
                             }
 
 
-                            // Search functionality
+                            // Search
                             const searchInput = document.getElementById('artist-search');
                             const searchButton = document.getElementById('search-button');
 
@@ -591,7 +580,6 @@
                                     }
                                 });
 
-                                // Search on Enter key
                                 searchInput.addEventListener('keyup', function (e) {
                                     if (e.key === 'Enter') {
                                         const query = this.value.trim();
@@ -603,7 +591,6 @@
                                 });
                             }
 
-                            // Search functionality implementation
                             function searchArtists(query) {
                                 query = query.toLowerCase();
                                 let resultsFound = false;
@@ -625,7 +612,6 @@
                                     }
                                 });
 
-                                // Reset filter buttons if search is active
                                 if (query) {
                                     filterButtons.forEach(btn => btn.classList.remove('active'));
                                     document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
@@ -637,7 +623,6 @@
                                 }
                             }
 
-                            // Add CSS for loading state and notifications
                             const style = document.createElement('style');
                             style.textContent = `
                 .loading {

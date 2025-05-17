@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Sora:wght@600;700&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --midnight-charcoal: #2E2E2E;
@@ -188,7 +190,7 @@
             padding: 12px 15px;
         }
 
-        .row-cols-1 > .col {
+        .row-cols-1>.col {
             margin-bottom: 20px;
         }
 
@@ -234,7 +236,7 @@
             transition: all 0.3s ease;
         }
 
-        .account-type-option input:checked + label {
+        .account-type-option input:checked+label {
             border-color: var(--watermelon-red);
             background-color: rgba(255, 92, 106, 0.05);
         }
@@ -415,8 +417,9 @@
                                 <div class="auth-image">
                                     <div>
                                         <h2>Join Our Creative Community</h2>
-                                        <p>Share your artwork, connect with fellow artists, and grow your creative journey with ArtSpire.</p>
-                                        
+                                        <p>Share your artwork, connect with fellow artists, and grow your creative
+                                            journey with ArtSpire.</p>
+
                                     </div>
                                 </div>
                             </div>
@@ -426,7 +429,7 @@
                                         <h3>Create an Account</h3>
                                         <p>Start your artistic journey today</p>
                                     </div>
-                                   
+
                                     <div class="divider">
                                         <span>SIGN UP WITH EMAIL</span>
                                     </div>
@@ -434,35 +437,41 @@
                                         <div class="row row-cols-1 row-cols-md-2">
                                             <div class="col">
                                                 <div class="form-floating">
-                                                    <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required>
+                                                    <input type="text" class="form-control" id="firstName"
+                                                        name="firstName" placeholder="First Name" required>
                                                     <label for="firstName">First Name</label>
                                                 </div>
                                             </div>
                                             <div class="col">
                                                 <div class="form-floating">
-                                                    <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required>
+                                                    <input type="text" class="form-control" id="lastName"
+                                                        name="lastName" placeholder="Last Name" required>
                                                     <label for="lastName">Last Name</label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-floating">
-                                            <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                                            <input type="email" class="form-control" id="email" name="email"
+                                                placeholder="Email" required>
                                             <label for="email">Email address</label>
                                         </div>
                                         <div class="form-floating">
-                                            <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
+                                            <input type="text" class="form-control" id="username" name="username"
+                                                placeholder="Username" required>
                                             <label for="username">Username</label>
                                         </div>
                                         <div class="form-floating">
-                                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                                            <input type="password" class="form-control" id="password" name="password"
+                                                placeholder="Password" required>
                                             <label for="password">Password</label>
                                         </div>
-                                        
+
                                         <div class="account-type">
                                             <label class="account-type-label">I am joining as:</label>
                                             <div class="account-type-options">
                                                 <div class="account-type-option">
-                                                    <input type="radio" name="accountType" id="artist" value="artist" checked>
+                                                    <input type="radio" name="accountType" id="artist" value="artist"
+                                                        checked>
                                                     <label for="artist">
                                                         <i class="fas fa-palette"></i>
                                                         <div class="type-name">Artist</div>
@@ -470,7 +479,8 @@
                                                     </label>
                                                 </div>
                                                 <div class="account-type-option">
-                                                    <input type="radio" name="accountType" id="collector" value="collector">
+                                                    <input type="radio" name="accountType" id="collector"
+                                                        value="collector">
                                                     <label for="collector">
                                                         <i class="fas fa-images"></i>
                                                         <div class="type-name">Art Lover</div>
@@ -479,14 +489,15 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                         <div class="terms-check form-check">
                                             <input class="form-check-input" type="checkbox" id="termsCheck" required>
                                             <label class="form-check-label" for="termsCheck">
-                                                I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                                                I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy
+                                                    Policy</a>
                                             </label>
                                         </div>
-                                        
+
                                         <button type="submit" class="btn btn-signup-submit">Create Account</button>
                                         <div class="auth-redirect">
                                             <p>Already have an account? <a href="login.html">Log in</a></p>
