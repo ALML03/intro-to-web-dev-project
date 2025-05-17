@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtSpire - Elena Rodriguez</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Sora:wght@600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #6c63ff;
+            --secondary-color: #4caf50;
+            --dark-color: #2c3e50;
+            --light-color: #f8f9fa;
+            --accent-color: #ff9800;
+            --watermelon-red: #ff5a5f;
+            --light-purple: #e8e6ff;
+            --light-green: #e6f7e7;
+        }
+
+        .artist-banner {
+            height: 300px;
+            background-image: linear-gradient(to right, rgba(108, 99, 255, 0.8), rgba(108, 99, 255, 0.6)), url('/api/placeholder/1200/300');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            display: flex;
+            align-items: flex-end;
+            padding-bottom: 20px;
+        }
+
+        .artist-profile-header {
+            margin-top: -80px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .artist-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid white;
+            margin-top: -95px;
+            object-fit: cover;
+        }
+
+        .artist-stats-bar {
+            background-color: var(--light-purple);
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .artist-stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .gallery-heading {
+            border-bottom: 2px solid var(--light-purple);
+            padding-bottom: 10px;
+            margin: 30px 0 20px;
+        }
+
+        .artwork-card {
+            margin-bottom: 30px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .artwork-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .artwork-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .artwork-details {
+            padding: 15px;
+        }
+
+        .artwork-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .artwork-category {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .artwork-desc {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .artwork-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 10px;
+            border-top: 1px solid #eee;
+        }
+
+        .like-share {
+            display: flex;
+            gap: 15px;
+        }
+
+        .like-btn, .share-btn {
+            background: none;
+            border: none;
+            color: #666;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .like-btn:hover, .share-btn:hover {
+            color: var(--primary-color);
+        }
+
+        .like-btn.active {
+            color: var(--watermelon-red);
+        }
+
+        .pricing {
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .social-connections {
+            background-color: var(--light-color);
+            padding: 30px 0;
+            margin: 40px 0;
+        }
+
+        .social-platform {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .platform-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-right: 15px;
+        }
+
+        .platform-link {
+            color: var(--dark-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .platform-link:hover {
+            color: var(--primary-color);
+        }
+
+        .bio-section {
+            margin: 40px 0;
+        }
+
+        .bio-tabs {
+            margin-bottom: 20px;
+        }
+
+        .bio-tab-content {
+            padding: 20px;
+            background-color: var(--light-color);
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .awards-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .award-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e9e9e9;
+        }
+
+        .award-icon {
+            color: var(--accent-color);
+            margin-right: 15px;
+            font-size: 1.5rem;
+        }
+
+        .award-content {
+            flex: 1;
+        }
+
+        .award-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .award-date {
+            font-size: 0.85rem;
+            color: #777;
+        }
+
+        .exhibition-item {
+            margin-bottom: 20px;
+        }
+
+        .exhibition-date {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .reviews-section {
+            margin: 40px 0;
+        }
+
+        .review-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .reviewer {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .reviewer-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .reviewer-info {
+            flex: 1;
+        }
+
+        .reviewer-name {
+            font-weight: 600;
+            margin-bottom: 0;
+        }
+
+        .rating {
+            color: var(--accent-color);
+            margin-top: 5px;
+        }
+
+        .contact-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            border: none;
+        }
+
+        .contact-btn:hover {
+            background-color: #574cff;
+            color: white;
+        }
+
+        .follow-btn {
+            background-color: white;
+            color: var(--primary-color);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 500;
+            border: 2px solid var(--primary-color);
+            transition: all 0.3s;
+        }
+
+        .follow-btn:hover, .follow-btn.following {
+            background-color: var(--primary-color);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
+    <nav class="navbar navbar-expand-lg fixed-top" role="navigation" aria-label="Primary navigation">
+        <div class="container">
+            <a class="navbar-brand" href="index.html" aria-label="ArtSpire Home">Art<span>Spire</span></a>
+            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#mobileNav" aria-controls="mobileNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse d-none d-lg-flex" id="navbarNav">
+                <ul class="navbar-nav ms-auto me-3">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="artists.html">Artists</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="uploadartwork.html">Upload</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="community.html">Community</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <div class="auth-buttons">
+                    <a href="login.html" class="btn btn-login">Log In</a>
+                    <a href="signup.html" class="btn btn-signup">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileNav" aria-labelledby="mobileNavLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="mobileNavLabel">Art<span>Spire</span></h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav mobile-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="gallery.html">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="artists.html">Artists</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="uploadartwork.html">Upload</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="community.html">Community</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+            </ul>
+            <div class="mobile-auth-buttons mt-4">
+                <a href="login.html" class="btn btn-login w-100 mb-2">Log In</a>
+                <a href="signup.html" class="btn btn-signup w-100">Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+    <section class="artist-banner" id="main-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1>Elena Rodriguez</h1>
+                    <p><i class="fas fa-map-marker-alt me-2"></i>San Francisco, CA</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <!-- content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <!-- header -->
+                <div class="artist-profile-header">
+                    <div class="row">
+                        <div class="col-lg-2 col-md-3 text-center">
+                            <img src="Emma Rodriguez.jpg" alt="Elena Rodriguez" class="artist-avatar">
+                        </div>
+                        <div class="col-lg-7 col-md-6">
+                            <h2>Elena Rodriguez</h2>
+                            <p class="text-muted">Digital Artist</p>
+                            <p>Elena specializes in creating vibrant digital landscapes and character designs inspired by nature and mythology. She combines traditional art techniques with modern digital tools to create works that transport viewers to magical realms.</p>
+                            <div class="artist-tags">
+                                <span class="badge bg-light text-dark me-2 mb-2">Digital Art</span>
+                                <span class="badge bg-light text-dark me-2 mb-2">Fantasy</span>
+                                <span class="badge bg-light text-dark me-2 mb-2">Character Design</span>
+                                <span class="badge bg-light text-dark me-2 mb-2">Concept Art</span>
+                                <span class="badge bg-light text-dark me-2 mb-2">Illustration</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 text-end d-flex flex-column align-items-end justify-content-center">
+                            <button class="btn contact-btn mb-2"><i class="fas fa-envelope me-2"></i> Contact</button>
+                            <button class="btn follow-btn"><i class="fas fa-user-plus me-2"></i> Follow</button>
+                        </div>
+                    </div>
+
+                    <!-- Artist Stats -->
+                    <div class="artist-stats-bar">
+                        <div class="artist-stat-item">
+                            <div class="stat-value">48</div>
+                            <div class="stat-label">Artworks</div>
+                        </div>
+                        <div class="artist-stat-item">
+                            <div class="stat-value">1.2k</div>
+                            <div class="stat-label">Followers</div>
+                        </div>
+                        <div class="artist-stat-item">
+                            <div class="stat-value">3.8k</div>
+                            <div class="stat-label">Likes</div>
+                        </div>
+                        <div class="artist-stat-item">
+                            <div class="stat-value">5</div>
+                            <div class="stat-label">Years Active</div>
+                        </div>
+                        <div class="artist-stat-item">
+                            <div class="stat-value">12</div>
+                            <div class="stat-label">Exhibitions</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bio-section">
+            <h3>About Elena</h3>
+            <div class="bio-tabs">
+                <ul class="nav nav-tabs" id="bioTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="bio-tab" data-bs-toggle="tab" data-bs-target="#bio" type="button" role="tab" aria-controls="bio" aria-selected="true">Biography</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="awards-tab" data-bs-toggle="tab" data-bs-target="#awards" type="button" role="tab" aria-controls="awards" aria-selected="false">Awards</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="exhibitions-tab" data-bs-toggle="tab" data-bs-target="#exhibitions" type="button" role="tab" aria-controls="exhibitions" aria-selected="false">Exhibitions</button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="bioTabsContent">
+                    <div class="tab-pane fade show active bio-tab-content" id="bio" role="tabpanel" aria-labelledby="bio-tab">
+                        <p>Born and raised in San Francisco, Elena Rodriguez discovered her passion for digital art while studying Fine Arts at the California College of the Arts. After graduating with honors in 2020, she began her career as a freelance digital artist, quickly gaining recognition for her distinctive style that blends fantasy elements with vibrant color palettes.</p>
+                        <p>Elena draws inspiration from her Mexican heritage, incorporating traditional folklore and mythology into her contemporary digital creations. Her work has been featured in several digital art publications, and she has collaborated with game development studios to create character designs and concept art.</p>
+                        <p>When not creating art, Elena teaches digital illustration workshops at local community centers and mentors young artists. She believes in the power of art to connect people across cultural boundaries and tell stories that resonate on a universal level.</p>
+                        <p>"I aim to create worlds that feel both fantastical and familiar," says Elena. "My art is about finding the magic in everyday life and bringing it to the surface through vibrant colors and dream-like imagery."</p>
+                    </div>
+                    <div class="tab-pane fade bio-tab-content" id="awards" role="tabpanel" aria-labelledby="awards-tab">
+                        <ul class="awards-list">
+                            <li class="award-item">
+                                <div class="award-icon">
+                                    <i class="fas fa-trophy"></i>
+                                </div>
+                                <div class="award-content">
+                                    <h4 class="award-title">Digital Artist of the Year</h4>
+                                    <p>Recognized by the San Francisco Digital Arts Association for outstanding contribution to the digital art community.</p>
+                                    <span class="award-date">2024</span>
+                                </div>
+                            </li>
+                            <li class="award-item">
+                                <div class="award-icon">
+                                    <i class="fas fa-medal"></i>
+                                </div>
+                                <div class="award-content">
+                                    <h4 class="award-title">Best Character Design</h4>
+                                    <p>Awarded at the International Digital Art Exhibition for her "Mythical Guardians" series.</p>
+                                    <span class="award-date">2023</span>
+                                </div>
+                            </li>
+                            <li class="award-item">
+                                <div class="award-icon">
+                                    <i class="fas fa-award"></i>
+                                </div>
+                                <div class="award-content">
+                                    <h4 class="award-title">Emerging Artist Grant</h4>
+                                    <p>Received from the California Arts Council to support her project exploring cultural identity through digital storytelling.</p>
+                                    <span class="award-date">2022</span>
+                                </div>
+                            </li>
+                            <li class="award-item">
+                                <div class="award-icon">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="award-content">
+                                    <h4 class="award-title">Creative Innovation Prize</h4>
+                                    <p>Awarded for pioneering new techniques in digital art at the West Coast Digital Media Festival.</p>
+                                    <span class="award-date">2021</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane fade bio-tab-content" id="exhibitions" role="tabpanel" aria-labelledby="exhibitions-tab">
+                        <div class="exhibition-item">
+                            <h4>Dreamscapes: Digital Worlds Reimagined</h4>
+                            <p class="exhibition-date">March 2025 - San Francisco Museum of Modern Art</p>
+                            <p>A solo exhibition featuring Elena's latest series exploring the intersection of dreams, technology, and cultural identity.</p>
+                        </div>
+                        <div class="exhibition-item">
+                            <h4>Beyond Reality: The New Frontier of Digital Art</h4>
+                            <p class="exhibition-date">October 2024 - Los Angeles Contemporary Art Gallery</p>
+                            <p>Group exhibition showcasing innovative digital artists pushing the boundaries of the medium.</p>
+                        </div>
+                        <div class="exhibition-item">
+                            <h4>Cultural Echoes in Digital Space</h4>
+                            <p class="exhibition-date">May 2024 - Mexican Cultural Institute, San Francisco</p>
+                            <p>Featured artist in an exhibition exploring how digital artists incorporate cultural heritage into contemporary works.</p>
+                        </div>
+                        <div class="exhibition-item">
+                            <h4>Characters & Worlds: Game Art Exhibition</h4>
+                            <p class="exhibition-date">November 2023 - GameDev Conference, San Jose</p>
+                            <p>Exhibition of concept art and character designs created for video games and interactive media.</p>
+                        </div>
+                        <div class="exhibition-item">
+                            <h4>New Voices in Digital Art</h4>
+                            <p class="exhibition-date">February 2023 - Online Exhibition</p>
+                            <p>Virtual exhibition featuring emerging digital artists from across North America.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gallery Section -->
+        <h3 class="gallery-heading">Featured Artworks</h3>
+        <div class="row">
+            <!-- Artwork 1 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="artwork-card">
+                    <img src="Artworks/Echoes of the Forest.webp" alt="Forest Guardian" class="artwork-image">
+                    <div class="artwork-details">
+                        <h4 class="artwork-title">Forest Guardian</h4>
+                        <div class="artwork-category">Character Design</div>
+                        <p class="artwork-desc">A mystical character inspired by forest spirits and ancient protectors of nature.</p>
+                        <div class="artwork-footer">
+                            <div class="like-share">
+                                <button class="like-btn"><i class="far fa-heart"></i> 145</button>
+                                <button class="share-btn"><i class="fas fa-share-alt"></i></button>
+                            </div>
+                            <div class="pricing">€350</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Artwork 2 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="artwork-card">
+                    <img src="Artworks/ancient city.webp" alt="Ancient City" class="artwork-image">
+                    <div class="artwork-details">
+                        <h4 class="artwork-title">Ancient City</h4>
+                        <div class="artwork-category">Digital Landscape</div>
+                        <p class="artwork-desc">A sprawling fantasy city blending architectural elements from various cultures.</p>
+                        <div class="artwork-footer">
+                            <div class="like-share">
+                                <button class="like-btn active"><i class="fas fa-heart"></i> 278</button>
+                                <button class="share-btn"><i class="fas fa-share-alt"></i></button>
+                            </div>
+                            <div class="pricing">€425</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Artwork 3 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="artwork-card">
+                    <img src="Artworks/Mythical Creatures.jpg" alt="Mythical Creatures" class="artwork-image">
+                    <div class="artwork-details">
+                        <h4 class="artwork-title">Mythical Creatures</h4>
+                        <div class="artwork-category">Concept Art Series</div>
+                        <p class="artwork-desc">A collection of reimagined mythological creatures from various cultural traditions.</p>
+                        <div class="artwork-footer">
+                            <div class="like-share">
+                                <button class="like-btn"><i class="far fa-heart"></i> 192</button>
+                                <button class="share-btn"><i class="fas fa-share-alt"></i></button>
+                            </div>
+                            <div class="pricing">€500</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Artwork 4 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="artwork-card">
+                    <img src="Artworks/Dream Portal.jpg" alt="Dream Portal" class="artwork-image">
+                    <div class="artwork-details">
+                        <h4 class="artwork-title">Dream Portal</h4>
+                        <div class="artwork-category">Abstract Digital</div>
+                        <p class="artwork-desc">An abstract piece exploring the threshold between reality and dreams.</p>
+                        <div class="artwork-footer">
+                            <div class="like-share">
+                                <button class="like-btn"><i class="far fa-heart"></i> 163</button>
+                                <button class="share-btn"><i class="fas fa-share-alt"></i></button>
+                            </div>
+                            <div class="pricing">€380</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Artwork 5 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="artwork-card">
+                    <img src="/api/placeholder/400/320" alt="Ocean Spirits" class="artwork-image">
+                    <div class="artwork-details">
+                        <h4 class="artwork-title">Ocean Spirits</h4>
+                        <div class="artwork-category">Character Design</div>
+                        <p class="artwork-desc">A series depicting mythical guardians of the ocean depths.</p>
+                        <div class="artwork-footer">
+                            <div class="like-share">
+                                <button class="like-btn active"><i class="fas fa-heart"></i> 237</button>
+                                <button class="share-btn"><i class="fas fa-share-alt"></i></button>
+                            </div>
+                            <div class="pricing">€410</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Artwork 6 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="artwork-card">
+                    <img src="/api/placeholder/400/320" alt="Celestial Map" class="artwork-image">
+                    <div class="artwork-details">
+                        <h4 class="artwork-title">Celestial Map</h4>
+                        <div class="artwork-category">Fantasy Illustration</div>
+                        <p class="artwork-desc">An imaginative star map for a fantasy world with its own constellations and celestial lore.</p>
+                        <div class="artwork-footer">
+                            <div class="like-share">
+                                <button class="like-btn"><i class="far fa-heart"></i> 184</button>
+                                <button class="share-btn"><i class="fas fa-share-alt"></i></button>
+                            </div>
+                            <div class="pricing">€475</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+   <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <!-- About -->
+                <div class="col-lg-4 col-md-6 footer-about">
+                    <div class="footer-logo">Art<span>Spire</span></div>
+                    <p>A creative hub designed for artists and art enthusiasts to share, showcase, and discover artwork
+                        from around the world.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="artists.html">Artists</a></li>
+                        <li><a href="community.html">Community</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="footer-heading">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="footer-heading">Contact Us</h4>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>123 Art Street, Creative City, AC 12345</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>(123) 456-7890</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>hello@artspire.com</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>© 2025 ArtSpire. All Rights Reserved. Designed with <i class="fas fa-heart"
+                        style="color: var(--watermelon-red);"></i> for artists.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="back-to-top" class="back-to-top-btn" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+
+</html>

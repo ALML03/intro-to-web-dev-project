@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtSpire - Creative Hub for Artists</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Sora:wght@600;700&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body class="index-page">
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top" role="navigation" aria-label="Primary navigation">
+        <div class="container">
+            <a class="navbar-brand" href="index.html" aria-label="ArtSpire Home">Art<span>Spire</span></a>
+            <!-- Mobile Only: Hamburger Button -->
+            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#mobileNav" aria-controls="mobileNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <!-- Desktop Navigation -->
+            <div class="collapse navbar-collapse d-none d-lg-flex" id="navbarNav">
+                <ul class="navbar-nav ms-auto me-3">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html" aria-current="page">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="artists.html">Artists</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="uploadartwork.html">Upload</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="community.html">Community</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <div class="auth-buttons">
+                    <a href="login.html" class="btn btn-login">Log In</a>
+                    <a href="signup.html" class="btn btn-signup">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Offcanvas Navigation -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileNav" aria-labelledby="mobileNavLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="mobileNavLabel">Art<span>Spire</span></h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav mobile-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html" aria-current="page">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="gallery.html">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="artists.html">Artists</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="uploadartwork.html">Upload</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="community.html">Community</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+            </ul>
+            <div class="mobile-auth-buttons mt-4">
+                <a href="login.html" class="btn btn-login w-100 mb-2">Log In</a>
+                <a href="signup.html" class="btn btn-signup w-100">Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="main-content">
+        <div class="hero-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+        </div>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content">
+                    <h1>Where <span>Art</span> Meets <span>Inspiration</span></h1>
+                    <p>Join our creative community to share your artwork, discover amazing artists, and connect with art
+                        enthusiasts from around the world.</p>
+                    <a href="signup.html" class="btn hero-btn">Join ArtSpire Today</a>
+                </div>
+                <div class="col-lg-6 hero-image">
+                    <img src="Pictures/group-artists-collaborating-project.avif"
+                        alt="Artists collaborating on a creative project" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Featured Artists Section -->
+    <section class="featured">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Artists</h2>
+                <p>Discover talented creators who are making waves in the ArtSpire community</p>
+            </div>
+            <div class="row">
+                <!-- Artist 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="artist-card card">
+                        <img src="Pictures/Elena Rodriguez.jpg" alt="Artist Elena Rodriguez" class="card-img-top">
+                        <div class="card-body">
+                            <span class="artist-category">Digital Artist</span>
+                            <h3 class="card-title">Elena Rodriguez</h3>
+                            <p class="card-text">Creating vibrant digital landscapes and character designs inspired by
+                                nature and mythology.</p>
+                            <div class="artist-stats">
+                                <span><i class="fas fa-image"></i> 48 Artworks</span>
+                                <span><i class="fas fa-user-friends"></i> 1.2k Followers</span>
+                            </div>
+                            <a href="#" class="btn btn-view-profile">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Artist 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="artist-card card">
+                        <img src="Pictures/Marcus Chen.jpg" alt="Artist Marcus Chen" class="card-img-top">
+                        <div class="card-body">
+                            <span class="artist-category">Painter</span>
+                            <h3 class="card-title">Marcus Chen</h3>
+                            <p class="card-text">Specializing in abstract oil paintings that explore themes of identity
+                                and urban environments.</p>
+                            <div class="artist-stats">
+                                <span><i class="fas fa-image"></i> 32 Artworks</span>
+                                <span><i class="fas fa-user-friends"></i> 945 Followers</span>
+                            </div>
+                            <a href="#" class="btn btn-view-profile">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Artist 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="artist-card card">
+                        <img src="Pictures/Amara Okafor.jpg" alt="Artist Amara Okafor" class="card-img-top">
+                        <div class="card-body">
+                            <span class="artist-category">Sculptor</span>
+                            <h3 class="card-title">Amara Okafor</h3>
+                            <p class="card-text">Creating powerful sculptural works that blend traditional African art
+                                with contemporary themes.</p>
+                            <div class="artist-stats">
+                                <span><i class="fas fa-image"></i> 24 Artworks</span>
+                                <span><i class="fas fa-user-friends"></i> 870 Followers</span>
+                            </div>
+                            <a href="#" class="btn btn-view-profile">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Artworks -->
+    <section class="featured-artworks">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Artworks</h2>
+                <p>Explore exceptional creations from our community</p>
+            </div>
+
+            <!-- Sort options (new feature) -->
+            <div class="sort-container mb-4">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="d-flex justify-content-center flex-wrap gap-2">
+                            <button class="btn sort-option active" data-sort="trending">
+                                <i class="fas fa-fire"></i> Trending
+                            </button>
+                            <button class="btn sort-option" data-sort="popularity">
+                                <i class="fas fa-heart"></i> Most Popular
+                            </button>
+                            <button class="btn sort-option" data-sort="comments">
+                                <i class="fas fa-comment"></i> Most Discussed
+                            </button>
+                            <button class="btn sort-option" data-sort="date">
+                                <i class="fas fa-calendar"></i> Newest
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" id="artwork-container">
+                <!-- Artwork 1 -->
+                <div class="col-lg-4 col-md-6" data-category="digital-art" data-sort-date="2025-05-01"
+                    data-sort-popularity="8.7" data-sort-trending="9.2" data-sort-comments="42">
+                    <div class="artwork-card card">
+                        <div class="artwork-img">
+                            <img src="Artworks/DREAMSCAPE ODYSSEY.png" alt="Dreamscape Odyssey by Elena Rodriguez">
+                            <div class="artwork-overlay"></div>
+                            <div class="artwork-actions">
+                                <button class="artwork-action-btn" aria-label="Like artwork">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                                <button class="artwork-action-btn" aria-label="Comment on artwork">
+                                    <i class="fas fa-comment"></i>
+                                </button>
+                                <button class="artwork-action-btn" aria-label="Save artwork">
+                                    <i class="fas fa-bookmark"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Dreamscape Odyssey</h3>
+                            <div class="artwork-artist">
+                                <div class="artist-avatar">
+                                    <img src="Pictures/Elena Rodriguez.jpg" alt="Elena Rodriguez">
+                                </div>
+                                <div class="artist-name">by Elena Rodriguez</div>
+                            </div>
+                            <div class="artwork-tags">
+                                <span class="artwork-tag">Digital Art</span>
+                                <span class="artwork-tag">Fantasy</span>
+                                <span class="artwork-tag">Landscape</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Artwork 2 -->
+                <div class="col-lg-4 col-md-6" data-category="painting" data-sort-date="2025-04-15"
+                    data-sort-popularity="7.9" data-sort-trending="8.1" data-sort-comments="28">
+                    <div class="artwork-card card">
+                        <div class="artwork-img">
+                            <img src="Artworks/Urban Fragments.png" alt="Urban Fragments by Marcus Chen">
+                            <div class="artwork-overlay"></div>
+                            <div class="artwork-actions">
+                                <button class="artwork-action-btn" aria-label="Like artwork">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                                <button class="artwork-action-btn" aria-label="Comment on artwork">
+                                    <i class="fas fa-comment"></i>
+                                </button>
+                                <button class="artwork-action-btn" aria-label="Save artwork">
+                                    <i class="fas fa-bookmark"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Urban Fragments</h3>
+                            <div class="artwork-artist">
+                                <div class="artist-avatar">
+                                    <img src="Pictures/Marcus Chen.jpg" alt="Marcus Chen">
+                                </div>
+                                <div class="artist-name">by Marcus Chen</div>
+                            </div>
+                            <div class="artwork-tags">
+                                <span class="artwork-tag">Abstract</span>
+                                <span class="artwork-tag">Oil Painting</span>
+                                <span class="artwork-tag">Urban</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Artwork 3 -->
+                <div class="col-lg-4 col-md-6" data-category="sculpture" data-sort-date="2025-04-25"
+                    data-sort-popularity="8.2" data-sort-trending="9.0" data-sort-comments="35">
+                    <div class="artwork-card card">
+                        <div class="artwork-img">
+                            <img src="Artworks/ANCESTRAL ECHOES.png" alt="Ancestral Echoes by Amara Okafor">
+                            <div class="artwork-overlay"></div>
+                            <div class="artwork-actions">
+                                <button class="artwork-action-btn" aria-label="Like artwork">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                                <button class="artwork-action-btn" aria-label="Comment on artwork">
+                                    <i class="fas fa-comment"></i>
+                                </button>
+                                <button class="artwork-action-btn" aria-label="Save artwork">
+                                    <i class="fas fa-bookmark"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Ancestral Echoes</h3>
+                            <div class="artwork-artist">
+                                <div class="artist-avatar">
+                                    <img src="Pictures/Amara Okafor.jpg" alt="Amara Okafor">
+                                </div>
+                                <div class="artist-name">by Amara Okafor</div>
+                            </div>
+                            <div class="artwork-tags">
+                                <span class="artwork-tag">Sculpture</span>
+                                <span class="artwork-tag">Heritage</span>
+                                <span class="artwork-tag">Contemporary</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="gallery.html" class="btn btn-view-profile">View All Artworks</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call To Action -->
+    <section class="cta">
+        <div class="cta-shape cta-shape-1"></div>
+        <div class="cta-shape cta-shape-2"></div>
+        <div class="container">
+            <h2>Ready to Share Your Art with the World?</h2>
+            <p>Join thousands of artists who are connecting, inspiring, and growing together in our supportive
+                community.</p>
+            <a href="signup.html" class="btn btn-cta">Create Your Portfolio Now</a>
+        </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <!-- About -->
+                <div class="col-lg-4 col-md-6 footer-about">
+                    <div class="footer-logo">Art<span>Spire</span></div>
+                    <p>A creative hub designed for artists and art enthusiasts to share, showcase, and discover artwork
+                        from around the world.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-6">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="artists.html">Artists</a></li>
+                        <li><a href="community.html">Community</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="footer-heading">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="footer-heading">Contact Us</h4>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>123 Art Street, Creative City, AC 12345</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>(123) 456-7890</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>hello@artspire.com</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="copyright">
+                <p>© 2025 ArtSpire. All Rights Reserved. Designed with <i class="fas fa-heart"
+                        style="color: var(--watermelon-red);"></i> for artists.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button id="back-to-top" class="back-to-top-btn" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+
+</html>

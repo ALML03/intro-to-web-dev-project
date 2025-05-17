@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtSpire - Discover Artists</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Sora:wght@600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="artists-page">
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top" role="navigation" aria-label="Primary navigation">
+        <div class="container">
+            <a class="navbar-brand" href="index.html" aria-label="ArtSpire Home">Art<span>Spire</span></a>
+            <!-- Mobile Only: Hamburger Button -->
+            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#mobileNav" aria-controls="mobileNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <!-- Desktop Navigation -->
+            <div class="collapse navbar-collapse d-none d-lg-flex" id="navbarNav">
+                <ul class="navbar-nav ms-auto me-3">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="artists.html" aria-current="page">Artists</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="uploadartwork.html">Upload</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="community.html">Community</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <div class="auth-buttons">
+                    <a href="login.html" class="btn btn-login">Log In</a>
+                    <a href="signup.html" class="btn btn-signup">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Offcanvas Navigation -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileNav" aria-labelledby="mobileNavLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="mobileNavLabel">Art<span>Spire</span></h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav mobile-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="gallery.html">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="artists.html" aria-current="page">Artists</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="uploadartwork.html">Upload</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="community.html">Community</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+            </ul>
+            <div class="mobile-auth-buttons mt-4">
+                <a href="login.html" class="btn btn-login w-100 mb-2">Log In</a>
+                <a href="signup.html" class="btn btn-signup w-100">Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+
+    <br>
+    <br>
+    <br>    
+    <br>
+    <br>
+    <br>
+
+<section class="page-header" id="main-content">
+  <div class="container" style="text-align: center;">
+    <h1>Our Artists</h1>
+    <p>Discover talented creators from around the world</p>
+  </div>
+</section>
+
+
+    <!-- Filter and Sort Section -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-container">
+                <div class="category-filters">
+                    <button class="filter-btn active" data-filter="all">All Categories</button>
+                    <button class="filter-btn" data-filter="digital-art">Digital Art</button>
+                    <button class="filter-btn" data-filter="painting">Painting</button>
+                    <button class="filter-btn" data-filter="sculpture">Sculpture</button>
+                    <button class="filter-btn" data-filter="photography">Photography</button>
+                    <button class="filter-btn" data-filter="mixed-media">Mixed Media</button>
+                </div>
+            </div>
+
+            <!-- Artists Grid -->
+            <section class="artists-grid">
+                <div class="container">
+                    <div class="row">
+                        <!-- Artist 1 -->
+                        <div class="col-lg-4 col-md-6 mb-4" data-category="digital-art">
+                            <div class="artist-profile-card card">
+                                <div class="artist-header">
+                                    <img src="Emma Rodriguez.jpg" alt="Elena Rodriguez" class="artist-img">
+                                    <div class="artist-info">
+                                        <h2 class="artist-name">Elena Rodriguez</h2>
+                                        <p class="artist-title">Digital Artist</p>
+                                        <p class="artist-location"><i class="fas fa-map-marker-alt"></i> San Francisco,
+                                            CA</p>
+                                    </div>
+                                </div>
+                                <div class="artist-bio">
+                                    <p>Elena specializes in creating vibrant digital landscapes and character designs
+                                        inspired by nature and mythology. She combines traditional art techniques with
+                                        modern digital tools to create works that transport viewers to magical realms.
+                                    </p>
+                                </div>
+                                <div class="artist-stats">
+                                    <div class="stat">
+                                        <span class="stat-value">48</span>
+                                        <span class="stat-label">Artworks</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-value">1.2k</span>
+                                        <span class="stat-label">Followers</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-value">3.8k</span>
+                                        <span class="stat-label">Likes</span>
+                                    </div>
+                                </div>
+                                <div class="artist-tags">
+                                    <span class="artist-tag">Digital Art</span>
+                                    <span class="artist-tag">Fantasy</span>
+                                    <span class="artist-tag">Character Design</span>
+                                </div>
+                                <div class="artist-actions">
+                                    <a href="Elena Rodriguez Profile.html" class="btn btn-view-profile">View Profile</a>
+                                    <button class="btn btn-follow"><i class="fas fa-user-plus"></i> Follow</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Artist 2 -->
+                        <div class="col-lg-4 col-md-6 mb-4" data-category="painting">
+                            <div class="artist-profile-card card">
+                                <div class="artist-header">
+                                    <img src="Marcus Chen.jpg" alt="Marcus Chen" class="artist-img">
+                                    <div class="artist-info">
+                                        <h2 class="artist-name">Marcus Chen</h2>
+                                        <p class="artist-title">Oil Painter</p>
+                                        <p class="artist-location"><i class="fas fa-map-marker-alt"></i> New York, NY
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="artist-bio">
+                                    <p>Marcus is an abstract oil painter whose work explores themes of identity and
+                                        urban environments. His bold use of color and texture creates powerful emotional
+                                        connections with viewers through his distinctive style.</p>
+                                </div>
+                                <div class="artist-stats">
+                                    <div class="stat">
+                                        <span class="stat-value">32</span>
+                                        <span class="stat-label">Artworks</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-value">945</span>
+                                        <span class="stat-label">Followers</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-value">2.1k</span>
+                                        <span class="stat-label">Likes</span>
+                                    </div>
+                                </div>
+                                <div class="artist-tags">
+                                    <span class="artist-tag">Abstract Art</span>
+                                    <span class="artist-tag">Oil Painting</span>
+                                    <span class="artist-tag">Urban Art</span>
+                                </div>
+                                <div class="artist-actions">
+                                    <a href="#" class="btn btn-view-profile">View Profile</a>
+                                    <button class="btn btn-follow"><i class="fas fa-user-plus"></i> Follow</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Artist 3 -->
+                        <div class="col-lg-4 col-md-6 mb-4" data-category="sculpture">
+                            <div class="artist-profile-card card">
+                                <div class="artist-header">
+                                    <img src="Sarah Johnson.jpg" Amara Okafor" class="artist-img">
+                                    <div class="artist-info">
+                                        <h2 class="artist-name">Amara Okafor</h2>
+                                        <p class="artist-title">Sculptor</p>
+                                        <p class="artist-location"><i class="fas fa-map-marker-alt"></i> London, UK</p>
+                                    </div>
+                                </div>
+                                <div class="artist-bio">
+                                    <p>Amara creates powerful sculptural works that blend traditional African art with
+                                        contemporary themes. Her pieces explore cultural identity, heritage, and the
+                                        intersection of past and present.</p>
+                                </div>
+                                <div class="artist-stats">
+                                    <div class="stat">
+                                        <span class="stat-value">24</span>
+                                        <span class="stat-label">Artworks</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-value">870</span>
+                                        <span class="stat-label">Followers</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-value">1.9k</span>
+                                        <span class="stat-label">Likes</span>
+                                    </div>
+                                </div>
+                                <div class="artist-tags">
+                                    <span class="artist-tag">Sculpture</span>
+                                    <span class="artist-tag">Cultural Art</span>
+                                    <span class="artist-tag">Contemporary</span>
+                                </div>
+                                <div class="artist-actions">
+                                    <a href="#" class="btn btn-view-profile">View Profile</a>
+                                    <button class="btn btn-follow"><i class="fas fa-user-plus"></i> Follow</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Artist 4 -->
+                        <div class="col-lg-4 col-md-6 mb-4" data-category="photography">
+                            <div class="artist-profile-card card">
+                                <div class="artist-header">
+                                    <img src="David Thompson.jpg" alt="Carlos Méndez" class="artist-img">
+                                    <div class="artist-info">
+                                        <h2 class="artist-name">Carlos Méndez</h2>
+                                        <p class="artist-title">Photographer</p>
+                                        <p class="artist-location"><i class="fas fa-map-marker-alt"></i> Barcelona,
+                                            Spain</p>
+                                    </div>
+                                </div>
+                                <div class="artist-bio">
+                                    <p>Carlos is a street photographer who captures the essence of urban life through
+                                        his lens. His work documents human connections and the beauty found in everyday
+                                        moments across various cities worldwide.</p>
+                                </div>
+                                <div class="artist-stats">
+                                    <div class="stat">
+                                        <span class="stat-value">156</span>
+                                        <span class="stat-label">Artworks</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-value">2.3k</span>
+                                        <span class="stat-label">Followers</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-value">5.7k</span>
+                                        <span class="stat-label">Likes</span>
+                                    </div>
+                                </div>
+                                <div class="artist-tags">
+                                    <span class="artist-tag">Street Photography</span>
+                                    <span class="artist-tag">Documentary</span>
+                                    <span class="artist-tag">Urban Life</span>
+                                </div>
+                                <div class="artist-actions">
+                                    <a href="#" class="btn btn-view-profile">View Profile</a>
+                                    <button class="btn btn-follow"><i class="fas fa-user-plus"></i> Follow</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Artist 5 -->
+                        <div class="col-lg-4 col-md-6 mb-4" data-category="mixed-media">
+                            <div class="artist-profile-card card">
+                                <div class="artist-header">
+                                    <img src="michael-dam-mEZ3PoFGs_k-unsplash.jpg" alt="Sarah Thompson"
+                                        class="artist-img">
+                                    <div class="artist-info">
+                                        <h2 class="artist-name">Sarah Thompson</h2>
+                                        <p class="artist-title">Mixed Media Artist</p>
+                                        <p class="artist-location"><i class="fas fa-map-marker-alt"></i> Sydney,
+                                            Australia</p>
+                                    </div>
+                                </div>
+                                <div class="artist-bio">
+                                    <p>Sarah combines various materials and techniques to create unique mixed media
+                                        artworks. Her pieces often explore environmental themes and sustainability,
+                                        using recycled materials to create meaningful art.</p>
+                                </div>
+                                <div class="artist-stats">
+                                    <div class="stat">
+                                        <span class="stat-value">67</span>
+                                        <span class="stat-label">Artworks</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-value">1.5k</span>
+                                        <span class="stat-label">Followers</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-value">3.2k</span>
+                                        <span class="stat-label">Likes</span>
+                                    </div>
+                                </div>
+                                <div class="artist-tags">
+                                    <span class="artist-tag">Mixed Media</span>
+                                    <span class="artist-tag">Eco Art</span>
+                                    <span class="artist-tag">Sustainability</span>
+                                </div>
+                                <div class="artist-actions">
+                                    <a href="#" class="btn btn-view-profile">View Profile</a>
+                                    <button class="btn btn-follow"><i class="fas fa-user-plus"></i> Follow</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Artist 6 -->
+                        <div class="col-lg-4 col-md-6 mb-4" data-category="digital-art">
+                            <div class="artist-profile-card card">
+                                <div class="artist-header">
+                                    <img src="Yuki_Tanaka.jpg" alt="Yuki Tanaka" class="artist-img">
+                                    <div class="artist-info">
+                                        <h2 class="artist-name">Yuki Tanaka</h2>
+                                        <p class="artist-title">Illustrator</p>
+                                        <p class="artist-location"><i class="fas fa-map-marker-alt"></i> Tokyo, Japan
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="artist-bio">
+                                    <p>Yuki is a children's book illustrator known for her whimsical and colorful
+                                        storytelling style. Her illustrations bring magical worlds to life, captivating
+                                        young readers and adults alike with their charm and detail.</p>
+                                </div>
+                                <div class="artist-stats">
+                                    <div class="stat">
+                                        <span class="stat-value">89</span>
+                                        <span class="stat-label">Artworks</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-value">3.1k</span>
+                                        <span class="stat-label">Followers</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-value">7.4k</span>
+                                        <span class="stat-label">Likes</span>
+                                    </div>
+                                </div>
+                                <div class="artist-tags">
+                                    <span class="artist-tag">Illustration</span>
+                                    <span class="artist-tag">Children's Books</span>
+                                    <span class="artist-tag">Watercolor</span>
+                                </div>
+                                <div class="artist-actions">
+                                    <a href="#" class="btn btn-view-profile">View Profile</a>
+                                    <button class="btn btn-follow"><i class="fas fa-user-plus"></i> Follow</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+                    <footer>
+                        <div class="container">
+                            <div class="row">
+                           
+                                <div class="col-lg-4 col-md-6 footer-about">
+                                    <div class="footer-logo">Art<span>Spire</span></div>
+                                    <p>A creative hub designed for artists and art enthusiasts to share, showcase, and
+                                        discover artwork from around the world.</p>
+                                    <div class="social-links">
+                                        <a href="#" class="social-link" aria-label="Facebook"><i
+                                                class="fab fa-facebook-f"></i></a>
+                                        <a href="#" class="social-link" aria-label="Twitter"><i
+                                                class="fab fa-twitter"></i></a>
+                                        <a href="#" class="social-link" aria-label="Instagram"><i
+                                                class="fab fa-instagram"></i></a>
+                                        <a href="#" class="social-link" aria-label="Pinterest"><i
+                                                class="fab fa-pinterest-p"></i></a>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-2 col-md-6">
+                                    <h4 class="footer-heading">Quick Links</h4>
+                                    <ul class="footer-links">
+                                        <li><a href="about.html">About Us</a></li>
+                                        <li><a href="gallery.html">Gallery</a></li>
+                                        <li><a href="artists.html">Artists</a></li>
+                                        <li><a href="community.html">Community</a></li>
+                                        <li><a href="contact.html">Contact Us</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="col-lg-3 col-md-6">
+                                    <h4 class="footer-heading">Support</h4>
+                                    <ul class="footer-links">
+                                        <li><a href="#">Help Center</a></li>
+                                        <li><a href="#">Terms of Service</a></li>
+                                        <li><a href="#">Privacy Policy</a></li>
+                                        <li><a href="#">Cookie Policy</a></li>
+                                        <li><a href="#">FAQs</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="col-lg-3 col-md-6">
+                                    <h4 class="footer-heading">Contact Us</h4>
+                                    <div class="footer-contact-item">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>123 Art Street, Creative City, AC 12345</span>
+                                    </div>
+                                    <div class="footer-contact-item">
+                                        <i class="fas fa-phone-alt"></i>
+                                        <span>(123) 456-7890</span>
+                                    </div>
+                                    <div class="footer-contact-item">
+                                        <i class="fas fa-envelope"></i>
+                                        <span>hello@artspire.com</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="copyright">
+                                <p>© 2025 ArtSpire. All Rights Reserved. Designed with <i class="fas fa-heart"
+                                        style="color: var(--watermelon-red);"></i> for artists.</p>
+                            </div>
+                        </div>
+                    </footer>
+
+                    <button id="back-to-top" class="back-to-top-btn" aria-label="Back to top">
+                        <i class="fas fa-chevron-up"></i>
+                    </button>
+
+                    <!-- Bootstrap JS -->
+                    <script
+                        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+                    <!-- Custom JS -->
+                    <script src="script.js"></script>
+
+                    <!-- Artists Page Specific JS -->
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function () {
+                            const filterButtons = document.querySelectorAll('.filter-btn');
+                            const artistCards = document.querySelectorAll('[data-category]');
+                            const sortSelect = document.querySelector('.form-select');
+                            const followButtons = document.querySelectorAll('.btn-follow');
+                            const artistContainer = document.querySelector('.row');
+
+                            let currentFilter = 'all';
+                            let currentSort = 'newest';
+
+                            filterButtons.forEach(button => {
+                                button.addEventListener('click', function () {
+                                    // to remove active class from all buttons
+                                    filterButtons.forEach(btn => btn.classList.remove('active'));
+
+                                    this.classList.add('active');
+
+                                    currentFilter = this.getAttribute('data-filter');
+
+                                    applyFilters();
+                                });
+                            });
+
+
+
+                            // Follow button functionality
+                            followButtons.forEach(button => {
+                                button.addEventListener('click', function () {
+                                    if (this.classList.contains('following')) {
+                                        this.classList.remove('following');
+                                        this.innerHTML = '<i class="fas fa-user-plus"></i> Follow';
+                                    } else {
+                                        this.classList.add('following');
+                                        this.innerHTML = '<i class="fas fa-check"></i> Following';
+
+                                        // Show feedback notification
+                                        showNotification('Artist followed successfully!');
+                                    }
+                                });
+                            });
+
+                            // Function to apply filters
+                            function applyFilters() {
+                                artistCards.forEach(card => {
+                                    const category = card.getAttribute('data-category');
+
+                                    if (currentFilter === 'all' || category === currentFilter) {
+                                        card.style.display = 'block';
+                                    } else {
+                                        card.style.display = 'none';
+                                    }
+                                });
+
+                                // After filtering, apply the current sort
+                                applySort();
+                            }
+
+                            // Function to apply sorting
+                            function applySort() {
+                                const cards = Array.from(artistCards).filter(card => {
+                                    return card.style.display !== 'none';
+                                });
+
+
+                                // Re-append cards in new order
+                                cards.forEach(card => {
+                                    artistContainer.appendChild(card);
+                                });
+                            }
+
+                            // Notification system
+                            function showNotification(message) {
+                                // Create notification element
+                                const notification = document.createElement('div');
+                                notification.className = 'notification';
+                                notification.textContent = message;
+
+                                // Add to document
+                                document.body.appendChild(notification);
+
+                                // Show with animation
+                                setTimeout(() => {
+                                    notification.classList.add('show');
+                                }, 10);
+
+                                // Remove after 3 seconds
+                                setTimeout(() => {
+                                    notification.classList.remove('show');
+                                    setTimeout(() => {
+                                        document.body.removeChild(notification);
+                                    }, 300);
+                                }, 3000);
+                            }
+
+
+                            // Search functionality
+                            const searchInput = document.getElementById('artist-search');
+                            const searchButton = document.getElementById('search-button');
+
+                            if (searchButton && searchInput) {
+                                // Search on button click
+                                searchButton.addEventListener('click', function () {
+                                    const query = searchInput.value.trim();
+                                    if (query) {
+                                        searchArtists(query);
+                                        showNotification(`Searching for "${query}"`);
+                                    }
+                                });
+
+                                // Search on Enter key
+                                searchInput.addEventListener('keyup', function (e) {
+                                    if (e.key === 'Enter') {
+                                        const query = this.value.trim();
+                                        if (query) {
+                                            searchArtists(query);
+                                            showNotification(`Searching for "${query}"`);
+                                        }
+                                    }
+                                });
+                            }
+
+                            // Search functionality implementation
+                            function searchArtists(query) {
+                                query = query.toLowerCase();
+                                let resultsFound = false;
+
+                                artistCards.forEach(card => {
+                                    const artistName = card.querySelector('.artist-name').textContent.toLowerCase();
+                                    const artistBio = card.querySelector('.artist-bio p').textContent.toLowerCase();
+                                    const artistTags = card.querySelector('.artist-tags').textContent.toLowerCase();
+                                    const artistLocation = card.querySelector('.artist-location').textContent.toLowerCase();
+
+                                    if (artistName.includes(query) ||
+                                        artistBio.includes(query) ||
+                                        artistTags.includes(query) ||
+                                        artistLocation.includes(query)) {
+                                        card.style.display = '';
+                                        resultsFound = true;
+                                    } else {
+                                        card.style.display = 'none';
+                                    }
+                                });
+
+                                // Reset filter buttons if search is active
+                                if (query) {
+                                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                                    document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
+                                    currentFilter = 'all';
+                                }
+
+                                if (!resultsFound) {
+                                    showNotification('No artists found matching your search');
+                                }
+                            }
+
+                            // Add CSS for loading state and notifications
+                            const style = document.createElement('style');
+                            style.textContent = `
+                .loading {
+                    opacity: 0.6;
+                    pointer-events: none;
+                    transition: opacity 0.3s;
+                }
+                
+                .notification {
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background-color: var(--primary-color, #6c63ff);
+                    color: white;
+                    padding: 15px 25px;
+                    border-radius: 8px;
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                    z-index: 1000;
+                    transform: translateY(-20px);
+                    opacity: 0;
+                    transition: transform 0.3s, opacity 0.3s;
+                }
+                
+                .notification.show {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+                
+                .btn-follow.following {
+                    background-color: #28a745;
+                    border-color: #28a745;
+                    color: white;
+                }
+                
+                .filter-btn:hover, .sort-option:hover {
+                    transform: translateY(-2px);
+                    transition: transform 0.2s;
+                }
+                
+                .artist-profile-card {
+                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+                }
+                
+                .artist-profile-card:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                }
+            `;
+                            document.head.appendChild(style);
+                        });
+                    </script>
+</body>
+
+</html>
