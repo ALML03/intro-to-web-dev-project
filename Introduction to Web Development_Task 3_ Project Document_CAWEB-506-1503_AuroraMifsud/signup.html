@@ -433,7 +433,7 @@
                                     <div class="divider">
                                         <span>SIGN UP WITH EMAIL</span>
                                     </div>
-                                    <form action="#" method="post">
+                                    <form id="signupForm" action="#" method="post">
                                         <div class="row row-cols-1 row-cols-md-2">
                                             <div class="col">
                                                 <div class="form-floating">
@@ -579,6 +579,43 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
+
+
+<!--Had a missing Form ID and needed to add js-->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.querySelector('form');
+            form.id = 'signupForm'; // Add missing ID
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // Get form data
+                const formData = new FormData(this);
+                const userData = {
+                    firstName: formData.get('firstName'),
+                    lastName: formData.get('lastName'),
+                    email: formData.get('email'),
+                    username: formData.get('username'),
+                    password: formData.get('password'),
+                    accountType: formData.get('accountType'),
+                    createdAt: new Date().toISOString()
+                };
+
+                // Save to localStorage
+                let users = JSON.parse(localStorage.getItem('artspire_users') || '[]');
+                users.push(userData);
+                localStorage.setItem('artspire_users', JSON.stringify(users));
+
+                // Show success and redirect
+                alert('Account created successfully!');
+                setTimeout(() => {
+                    window.location.href = 'dashboard.html'; // Change to your dashboard page
+                }, 1000);
+            });
+        });
+    </script>
+
 </body>
 
 </html>
