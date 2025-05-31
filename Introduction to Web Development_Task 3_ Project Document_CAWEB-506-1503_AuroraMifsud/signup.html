@@ -590,7 +590,6 @@
             form.addEventListener('submit', function (e) {
                 e.preventDefault();
 
-                // Get form data
                 const formData = new FormData(this);
                 const userData = {
                     firstName: formData.get('firstName'),
@@ -602,15 +601,14 @@
                     createdAt: new Date().toISOString()
                 };
 
-                // Save to localStorage
+                
                 let users = JSON.parse(localStorage.getItem('artspire_users') || '[]');
                 users.push(userData);
                 localStorage.setItem('artspire_users', JSON.stringify(users));
 
-                // Show success and redirect
                 alert('Account created successfully!');
                 setTimeout(() => {
-                    window.location.href = 'dashboard.html'; // Change to your dashboard page
+                    window.location.href = 'dashboard.html'; 
                 }, 1000);
             });
         });
